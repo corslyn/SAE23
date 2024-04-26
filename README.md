@@ -7,9 +7,8 @@
 
 <br/>  
  
-![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/SAE23?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/SAE23?style=for-the-badge)
-![repo size](https://img.shields.io/github/repo-size/NullBrunk/SAE23?style=for-the-badge)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 </div>
 
