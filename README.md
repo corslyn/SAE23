@@ -12,6 +12,10 @@
 
 </div>
 
+# ⚒️ Installation
+```
+composer install --no-dev
+```
 
 
 # 📖 Changelog
