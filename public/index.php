@@ -10,10 +10,25 @@ error_reporting(E_ALL);
 // On inclut l'autoloader de composer pour éviter d'avoir à include_once une classe dès qu'on en a besoin 
 include_once __DIR__ . "/../vendor/autoload.php";
 
-// Étant donné qu'on a inclus l'autoloader il nous suffit de use le FQCN, et nous pourrons utiliser
-// la classe dans la suite du code 
-use \App\Database\Db;
+// À défaut d'utiliser un vrai système de route, on utilise ici un principe de "fichier 
+// carrefour", qui, en fonction de la valeur du paramètre page effectue une certaine action
+//
+// Ici, les controllers retournent les vue présente dans le dossier views
 
-// On utilise le helper dd du packahe de symfony/var-dumper pour "die and dump" des informations
-dd(Db::get_instance()); 
+$page = $_GET["page"] ?? "index";
+
+switch($page) {
+	case "index":
+		$main = new \App\Controllers\MainController();
+		$main -> show_view();
+		break;
+
+	case "dd":
+		dd("Test");
+		break;
+
+	default:
+		include_once "../views/404.php";
+		http_response_code(404);
+}
 
