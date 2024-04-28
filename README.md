@@ -11,7 +11,7 @@
 
 
 # ⚒️  Installation
-```
+```bash
 # Installez les dépendances et mettre en place l'autoloading de composer
 composer install --no-dev
 # Puis lancez le serveur de dev de PHP en lui indiquant que le / de l'application
