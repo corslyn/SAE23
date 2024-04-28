@@ -20,7 +20,7 @@ sudo php -S 0.0.0.0:80 -t public
 ```
 
 # 📖 Changelog
-```
+```markdown
 # [1.0] - 26 avril 2024
 - First commit
 - Initialisation du projet avec composer
