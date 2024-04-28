@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 */
 
 // On inclut l'autoloader de composer pour éviter d'avoir à include_once une classe dès qu'on en a besoin 
-include_once __DIR__ . "/vendor/autoload.php";
+include_once __DIR__ . "/../vendor/autoload.php";
 
 // Étant donné qu'on a inclus l'autoloader il nous suffit de use le FQCN, et nous pourrons utiliser
 // la classe dans la suite du code 
