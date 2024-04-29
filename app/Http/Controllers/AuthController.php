@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         # Search for the username & password combination in the users table
         $data = Users::where("email", "=", $request["email"]) 
-                -> where("password", "=", self::hash($request["password"]))
+                -> where("mot_de_passe", "=", self::hash($request["password"]))
                 -> get() 
                 -> toArray();
         
@@ -61,12 +61,20 @@ class AuthController extends Controller
      */
     public function signup(SignupReq $request) {
 
-        # Since the validation of the request include the fact that the name is unique in
-        # the table, we can create the user without any validation at this level
+        // # Since the validation of the request include the fact that the name is unique in
+        // # the table, we can create the user without any validation at this level
 
         $user = Users::create([
-            "name" => $request["name"],
+            "prenom" => $request["prenom"],
+            "nom" => $request["nom"],
+            "domiciliation" => $request["domiciliation"],
+            "groupe" => $request["groupe"],
+            "sous_groupe" => $request["sous_groupe"],
+            "nom_formation" => $request["nom_formation"],
             "email" => $request["email"],
+            "name" => $request["name"],
+            "mot_de_passe" => $request["mot_de_passe"],
+            "mot_de_passe_confirmation" => $request["mot_de_passe_confirmation"],
             "password" => self::hash($request["password"])
         ]);
 
@@ -75,5 +83,7 @@ class AuthController extends Controller
         return to_route("auth.login") -> with(
             "success", "User " . $user -> name . " has been created !"
         );
+
+
     }
 }

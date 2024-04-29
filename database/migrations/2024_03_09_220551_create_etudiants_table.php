@@ -15,8 +15,13 @@ return new class extends Migration
             $table -> id();
             $table -> string('prenom');
             $table -> string('nom');
-            $table -> string('name');
+
+            $table -> string('email') -> unique();
+            $table -> string('mot_de_passe');
+            
             $table -> string('domiciliation');
+
+
             
             $table -> unsignedBigInteger('id_formation');
             $table -> foreign('id_formation') -> references('id') -> on('formations') -> onDelete('cascade') -> onUpdate('cascade');

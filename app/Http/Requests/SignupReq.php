@@ -23,10 +23,16 @@ class SignupReq extends FormRequest
     public function rules(): array
     {
         return [
+            "prenom" => "required|max:50",
+            "nom" => "required|max:50",
+            "domiciliation" => "required|max:50",
+            "groupe" => "required|max:50",
+            "sous_groupe" => "required|max:50",
+            "nom_formation" => "required|max:50",
             "email" => "required|email|max:50|unique:users",
             "name" => "required|max:50",
-            "password" => "required",
-            "password_confirmation" => "required|same:password"
+            "mot_de_passe" => "required",
+            "mot_de_passe_confirmation" => "required|same:password"
         ];
     }
 }
