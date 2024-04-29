@@ -5,7 +5,7 @@ namespace App\Controllers;
 /**
  * @class MainController
  *
- * Ce controller est chargé d'afficher la page d'index
+ * Ce controller est chargé de la partie logique de l'affichage de la page d'index
  */
 class MainController {
 

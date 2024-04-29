@@ -17,8 +17,8 @@ namespace App\Database;
 class Db {
     private const USERNAME = "root";
     private const PASSWORD = "root";
-    private const HOST = "127.0.0.1";
-    private const NAME = "test";
+    private const HOST = "mysql";
+    private const NAME = "sae23";
 
     private static $_instance;
     private $connection;
@@ -55,7 +55,8 @@ class Db {
             "dbname=" . self::NAME,
             self::USERNAME,
             self::PASSWORD,
-        );
+        ) 
+        or die("CRITICAL ERROR: unable to connect to the database");
     }
 
 

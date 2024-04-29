@@ -23,8 +23,8 @@ switch($page) {
 		$main -> show_view();
 		break;
 
-	case "dd":
-		dd("Test");
+	case "debug":
+		dump("test");
 		break;
 
 	default:

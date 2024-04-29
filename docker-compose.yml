@@ -1,0 +1,27 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/var/www/html/
+    links:
+      - mysql
+    networks:
+      - sae23
+
+  mysql:
+    image: mariadb:11
+    networks:
+      - sae23
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sae23
+
+
+networks:
+  sae23:
+
