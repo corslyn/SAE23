@@ -18,3 +18,6 @@
 - Mise en place de Laravel
 ```
 
+HTTP : 80 (vm) -> 8000 (exterieur)
+SSH : 22 (vm) -> 2200 (exterieur)
+phpmyadmin : 70 (vm) -> 7000 (exterieur)

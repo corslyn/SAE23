@@ -16,10 +16,10 @@ return new class extends Migration
             $table -> string("participation_demandee");
             
             $table -> unsignedBigInteger('id_vehicule');
-            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules') -> onDelete('cascade') -> onUpdate('cascade');
+            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules') -> onDelete('cascade');
 
             $table -> unsignedBigInteger('id_lieux');
-            $table -> foreign('id_lieux') -> references('id') -> on('lieux') -> onDelete('cascade') -> onUpdate('cascade');
+            $table -> foreign('id_lieux') -> references('id') -> on('lieux') -> onDelete('cascade');
       
         });
     }

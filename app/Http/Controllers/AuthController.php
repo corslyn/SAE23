@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginReq;
 use App\Http\Requests\SignupReq;
-use App\Models\Users;
+use App\Models\Etudiants;
 
 class AuthController extends Controller
 {
@@ -30,8 +30,8 @@ class AuthController extends Controller
      */
     public function login(LoginReq $request) {
 
-        # Search for the username & password combination in the users table
-        $data = Users::where("email", "=", $request["email"]) 
+        # Search for the username & password combination in the Etudiants table
+        $data = Etudiants::where("email", "=", $request["email"]) 
                 -> where("mot_de_passe", "=", self::hash($request["password"]))
                 -> get() 
                 -> toArray();
@@ -64,7 +64,7 @@ class AuthController extends Controller
         // # Since the validation of the request include the fact that the name is unique in
         // # the table, we can create the user without any validation at this level
 
-        $user = Users::create([
+        $user = Etudiants::create([
             "prenom" => $request["prenom"],
             "nom" => $request["nom"],
             "domiciliation" => $request["domiciliation"],
@@ -73,10 +73,9 @@ class AuthController extends Controller
             "nom_formation" => $request["nom_formation"],
             "email" => $request["email"],
             "name" => $request["name"],
-            "mot_de_passe" => $request["mot_de_passe"],
-            "mot_de_passe_confirmation" => $request["mot_de_passe_confirmation"],
-            "password" => self::hash($request["password"])
+            "mot_de_passe" => self::hash($request["mot_de_passe"]),
         ]);
+        dd($user);
 
         # And safely return to the login page
         

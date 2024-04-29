@@ -17,9 +17,9 @@ return new class extends Migration
             $table -> tinyInteger('nb_places');
             $table -> string('immatriculation');
             
-            $table -> bool('carte_grise');
-            $table -> bool('controle_technique');
-            $table -> bool('assurance');
+            $table -> boolean('carte_grise');
+            $table -> boolean('controle_technique');
+            $table -> boolean('assurance');
         });
     }
 
