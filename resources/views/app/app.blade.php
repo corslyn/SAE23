@@ -1,10 +1,14 @@
 @extends('layout.base')
 
-@section("title", "Index page")
+@section("title", "App")
 
 
 @section("body")
     <section class="container">
+        
+        
+        Emploi du temps
 
+            
     </section>
 @endsection

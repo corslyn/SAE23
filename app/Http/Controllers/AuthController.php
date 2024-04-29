@@ -65,16 +65,14 @@ class AuthController extends Controller
         // # the table, we can create the user without any validation at this level
 
         $user = Etudiants::create([
-            "prenom" => $request["prenom"],
-            "nom" => $request["nom"],
-            "domiciliation" => $request["domiciliation"],
-            "groupe" => $request["groupe"],
-            "sous_groupe" => $request["sous_groupe"],
-            "id_formation" => $request["id_formation"],
             "email" => $request["email"],
+            "nom" => $request["nom"],
+            "sous_groupe" => $request["sous_groupe"],
+            "id_vehicule" => null,
+            "formation" => $request["formation"],
+            "sous_groupe" => $request["sous_groupe"],
             "mot_de_passe" => self::hash($request["mot_de_passe"]),
         ]);
-        dd($user);
 
         # And safely return to the login page
         

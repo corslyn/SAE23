@@ -11,23 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('etudiants', function (Blueprint $table) {
+        Schema::create('utilisateurs', function (Blueprint $table) {
             $table -> id();
-            $table -> string('prenom');
             $table -> string('nom');
-
             $table -> string('email') -> unique();
+
             $table -> string('mot_de_passe');
             
-            $table -> string('domiciliation');
-
-
-            
-            $table -> unsignedBigInteger('id_formation');
-            $table -> foreign('id_formation') -> references('id') -> on('formations') -> onDelete('cascade') -> onUpdate('cascade');
-            
-            $table -> string('groupe');
+            $table -> string('formation');
             $table -> string('sous_groupe');
+
+            $table -> unsignedBigInteger('id_vehicule') -> nullable();
+            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules') -> onDelete('cascade');
 
             $table -> timestamps();
         });

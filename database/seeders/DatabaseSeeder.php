@@ -5,7 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,27 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('formations') -> insert([
-            "id" => 1,
-            "nom" => "RT1",
+        $this->call([
+            LK2_cours_seeder::class,
+            GB1_cours_seeder::class,
+            GB2_cours_seeder::class,
+            LK1_cours_seeder::class,
         ]);
-
-        DB::table('formations') -> insert([
-            "id" => 2,
-            "nom" => "MMI",
-        ]);
-
-        DB::table('formations') -> insert([
-            "id" => 3,
-            "nom" => "GACO",
-        ]);
-
-        
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

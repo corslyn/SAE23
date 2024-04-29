@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipages', function (Blueprint $table) {
+        Schema::create('vehicules', function (Blueprint $table) {
             $table -> id();
-
-            $table -> unsignedBigInteger('id_deplacement');
-            $table -> foreign('id_deplacement') -> references('id') -> on('deplacements') -> onDelete('cascade') -> onUpdate('cascade');
-            
+            $table -> string("immatriculation") -> unique();
+            $table -> smallInteger("nombre_places");
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipages');
+        Schema::dropIfExists('vehicules');
     }
 };

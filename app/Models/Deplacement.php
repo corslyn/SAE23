@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rejoint_equipage extends Model
+class Deplacement extends Model
 {
     use HasFactory;
-
+        
     protected $guarded = [];
-
+    public $timestamps = false;
 }

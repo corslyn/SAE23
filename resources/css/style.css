@@ -2,8 +2,13 @@
     padding: 0;
     margin: 0;
 
-    --bg-color: #161618;
-    --fg-color: #ffffff;
+    --bg-color: #F6F6F6;
+    --fg-color: #000000;
+    --nav-color: #FFF5C2;
+    --bg-beige: #F4F27E;
+    --fg-blue-clear: #3081D0;
+
+    font-family: 'Kanit', sans-serif;
 }
 
 input:focus {
@@ -16,12 +21,19 @@ body {
         
     background-color: var(--bg-color);
     color: var(--fg-color);
+
+    height: 100vh;
 }
 
 a {
     text-decoration: none;
 }
-    
+
+.container {
+  padding-left: 7vw;
+  padding-top: 17vh;
+}
+
 .hidden {
     display: none;
 }
@@ -38,3 +50,272 @@ a {
     color: green;
 }
 
+
+  h1 {
+      color: #6DB9EF;
+      text-align: center;
+      margin-top: 100px;
+      font-weight: bolder;
+  }
+  
+  h2 {
+    color: var(--bg-beige);
+    text-align: center;
+    margin-top: 100px;
+    font-weight: bolder;
+  }
+  
+  /* bandeau numéro 1 */
+  .banner {
+    display: flex;
+    background-color: #F2DF3A;
+    color: white;
+    padding: 30px;
+    font-weight: bolder;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    justify-content: space-between;
+  }
+  
+  .banner > * {
+    width: 33%;
+  }
+
+  .right {
+    display: flex;
+    justify-content: right;
+  }
+
+  .banner.show {
+      display: flex;
+      top: 0;
+  }
+  
+  .banner h2 {
+      display: flex;
+      text-align: center;
+  }
+  
+  .banner img {
+      display: flex;
+      position: absolute;
+      margin-top: -20px;
+  }
+  
+  .img2 {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 250px;
+  }
+  
+  .img2 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .img2 i {
+    display: flex;
+    margin-right: 5px;
+  }
+  
+  .img2 a {
+    display: flex;
+    text-align: center;
+    color: var(--fg-blue-clear);
+  }
+  
+  .bx-user {
+    font-size: 60px;
+    color: var(--fg-blue-clear);
+    margin-top: 20px;
+  }
+  
+  /* bandeau numéro 2 */
+  .banner2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url('/assets/img/paysage.jpg');
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir l'ensemble du bandeau */
+    background-position: center; /* Centre l'image dans le bandeau */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    height: 450px; /* Définissez la hauteur de votre bandeau */
+    color: white;
+    font-weight: bolder;
+    opacity: 0.9;
+  }
+  
+  .banner2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur noire avec une opacité de 0.5 */
+  }
+  
+  .banner2 h1, h2 {
+    position: relative;
+    z-index: 1; /* Mettre en premier plan */
+  }
+  
+  .banner2 h2 {
+    text-align: center;
+  }
+  
+  .banner2 img {
+    display: none; /* Masque l'image car nous utilisons une image de fond */
+  }
+    
+  /* Animation menu nav */
+    ul {
+      margin: auto;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+    }
+    
+    ul li {
+      margin: auto;
+      height: 30px;
+      overflow: hidden;
+      display: flex;
+    }
+    
+    .content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      transition: 0.2s;
+      transform: translateY(9px);
+    }
+    
+    .content:hover {
+      transform: translateY(-20px);
+    }
+    
+    .content:hover a {
+      color: Black;
+    }
+    
+    .content:hover a:nth-child(1) {
+      opacity: 0;
+    }
+    
+    ul li a {
+      margin: auto;
+      text-decoration: none;
+      color: var(--fg-blue-clear);
+      font-size: 20px;
+      transition: 0.2s;
+    }
+  
+  
+  /*Liste déroulante*/
+  a {
+    color: var(--fg-blue-clear);
+  }
+  
+  
+  #selected-option {
+      cursor: pointer;
+      display: inline-block;
+      width: 200px;
+      padding: 5px;
+      background-color: var(--bg-beige);
+      border: none;
+      border-radius: 5px;
+  }
+  
+  #choix {
+    background-color: var(--bg-beige);
+    border: 0px;
+    width: 215px;
+    font-size: 27px;
+    color: var(--fg-blue-clear);
+    font-weight: 600;
+    padding: 2px 30px;
+    border-radius: 6px;
+    width: 207px;
+  }
+  
+  .arrow-down {
+      position: absolute;
+      top: calc(50% - 0.1em);
+      right: 10px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid black;
+      pointer-events: none;
+  }
+
+.login {
+    display: flex;
+}
+
+.login form {
+    margin: auto;
+    background-color: #fff5c2;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.login form h1 {
+    color: #0078AA;
+    font-weight: 700;
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+.login form label {
+    margin-top: 10px;
+    display: block;
+    color: #3081D0;
+}
+
+.login form input {
+    background-color: inherit;
+    border: 0px;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    font-size: 18px;
+    width: 450px;
+}
+
+.login form button {
+    width: 95%;
+    margin-left: 2.5%;
+    border-radius: 15px;
+    margin-top: 25px;
+    height: 45px;
+    font-size: 20px;
+    border: 0px;
+    background-color: #0078aa;
+    border: 2px solid #0078aa;
+    color: #fff5c2;
+    cursor: pointer;
+} 
+
+.login form button:hover {
+    background-color: #fff5c2;
+    color: #0078aa;
+    border: 2px solid #0078aa;
+    transition: all 0.5s;
+} 
+
+.login form select {
+    background-color: #F6F6F6;
+    border: 0px;
+    padding: 7px;
+    border-radius: 7px;
+}
