@@ -1,0 +1,1 @@
+*{padding:0;margin:0;--bg-color:#161618;--fg-color:#ffffff}input:focus{outline:0}body{font-family:"Open Sans",sans-serif;font-size:17px;background-color:var(--bg-color);color:var(--fg-color)}a{text-decoration:none}.hidden{display:none}.error-border{border:1px solid red}.error{color:red}.success{color:green}
