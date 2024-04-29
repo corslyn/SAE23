@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginReq;
 use App\Http\Requests\SignupReq;
-use App\Models\Etudiants;
+use App\Models\Utilisateurs;
+
+use RobThree\Auth\TwoFactorAuth;
+use RobThree\Auth\Providers\Qr\BaconQrCodeProvider;
+
 
 class AuthController extends Controller
 {
@@ -30,16 +34,25 @@ class AuthController extends Controller
      */
     public function login(LoginReq $request) {
 
-        # Search for the username & password combination in the Etudiants table
-        $data = Etudiants::where("email", "=", $request["email"]) 
+        # Search for the username & password combination in the Utilisateurs table
+        $data = Utilisateurs::where("email", "=", $request["email"]) 
                 -> where("mot_de_passe", "=", self::hash($request["password"]))
                 -> get() 
                 -> toArray();
         
+        
+
+        $tfa = new TwoFactorAuth(new BaconQrCodeProvider());
         # If there is no such combination in the table, return to previous page with error
         if(empty($data)) {
             return to_route("auth.login") -> withErrors([
                 "loginerror" => "Invalid username or password"
+            ]);
+        }
+
+        if(!($tfa -> verifyCode($data[0]["secret"], $request["secret"]))) {
+            return to_route("auth.login") -> withErrors([
+                "loginerror" => "Invalid 2FA token !"
             ]);
         }
 
@@ -61,10 +74,12 @@ class AuthController extends Controller
      */
     public function signup(SignupReq $request) {
 
-        // # Since the validation of the request include the fact that the name is unique in
-        // # the table, we can create the user without any validation at this level
+        $tfa = new TwoFactorAuth(new BaconQrCodeProvider());
+        
+        $secret = $tfa -> createSecret();
+        $qrcode = $tfa->getQRCodeImageAsDataUri($request["email"], $secret);
 
-        $user = Etudiants::create([
+        Utilisateurs::create([
             "email" => $request["email"],
             "nom" => $request["nom"],
             "sous_groupe" => $request["sous_groupe"],
@@ -72,14 +87,14 @@ class AuthController extends Controller
             "formation" => $request["formation"],
             "sous_groupe" => $request["sous_groupe"],
             "mot_de_passe" => self::hash($request["mot_de_passe"]),
+            "secret" => $secret
         ]);
 
-        # And safely return to the login page
         
-        return to_route("auth.login") -> with(
-            "success", "User " . $user -> name . " has been created !"
-        );
-
-
+        return view("auth.validate", [
+            "secret" => $secret,
+            "qrcode" => $qrcode,
+        ]);
     }
+
 }

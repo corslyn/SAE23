@@ -17,6 +17,8 @@ return new class extends Migration
             $table -> string('email') -> unique();
 
             $table -> string('mot_de_passe');
+            $table -> string('secret') -> nullable();
+
             
             $table -> string('formation');
             $table -> string('sous_groupe');

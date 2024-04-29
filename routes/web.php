@@ -20,6 +20,7 @@ Route::middleware("guest") -> name("auth.") -> controller(AuthController::class)
     
     Route::view("/signup", "auth.signup") -> name("signup");
     Route::post("/signup", "signup");
+
 });
 
 Route::get("logout", function() {

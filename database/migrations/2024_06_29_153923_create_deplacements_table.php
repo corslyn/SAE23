@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('deplacements', function (Blueprint $table) {
             $table -> id();
-            $table -> datetimes("date");
+            $table -> datetime("date");
+
 
             $table -> unsignedBigInteger('id_lieu_depart');
-            $table -> foreign('id_lieu_depart') -> references('id') -> on('lieu') -> onDelete('cascade');
+            $table -> foreign('id_lieu_depart') -> references('id') -> on('lieus') -> onDelete('cascade');
 
-            $table -> unsignedBigInteger('id_utilisateur');
-            $table -> foreign('id_lieu_arrive') -> references('id') -> on('lieu') -> onDelete('cascade');
+            $table -> unsignedBigInteger('id_lieu_arrive');
+            $table -> foreign('id_lieu_arrive') -> references('id') -> on('lieus') -> onDelete('cascade');
 
         });
     }

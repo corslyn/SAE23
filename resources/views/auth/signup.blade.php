@@ -8,7 +8,6 @@
         
         <form action="{{ route("auth.signup") }}" method="post">
             <h1>S'inscrire</h1>
-            
             @csrf
             <div>
                 <label>Email</label>

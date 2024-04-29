@@ -34,6 +34,14 @@
                 <i class='bx bx-lock-alt'></i>
                 <input type="password" name="password" id="password" placeholder="••••••••" class="@error("password" || "loginerror") error-border @enderror">
             </div>
+
+
+            <div>
+                @error("number") <div class="error">{{ $message }}</div> @enderror 
+                <label>Email</label>
+                <i class='bx bx-envelope'></i>
+                <input type="number" name="secret" id="secret" value="{{ old("secret") }}" placeholder="XXXXXX" class="@error("loginerror" ) error-border @enderror">
+            </div>
             
             <button>Se connecter</button>
         </form>

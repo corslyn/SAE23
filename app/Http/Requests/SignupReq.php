@@ -29,8 +29,6 @@ class SignupReq extends FormRequest
             
             "nom" => "required|max:50",
             
-            "id_vehicule" => "required:exist:vehicules",
-            
             "formation" => "required|max:50",
             "sous_groupe" => "required|max:50",
         ];
