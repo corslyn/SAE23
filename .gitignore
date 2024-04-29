@@ -5,6 +5,9 @@
 /public/storage
 /storage/*.key
 /vendor
+/composer.lock
+/composer.phar
+
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -14,3 +17,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
