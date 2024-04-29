@@ -1,24 +1,20 @@
 <div align="center">
 
-<a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a>
+# SAE23  
 
-    
-![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/Laravel-starter?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/Laravel-starter?style=for-the-badge)
-![repo size](https://img.shields.io/github/repo-size/NullBrunk/Laravel-starter?style=for-the-badge)
+<img src="https://readme-typing-svg.demolab.com?font=Iosevka+Nerd+Font&weight=900&pause=1000&color=6791C9&background=0C0E0F00&center=true&vCenter=true&width=700&lines=Mettre%20en%20place%20une%20solution%20informatique"> 
+
+<br/>  
+ 
 
 </div>
 
-This is a simple Laravel Starter Kit with Auth preimplemented (Migration, Model, Controller & Middlewares). Routing has also been preconfigured, as well as the login and signup views.
 
-# Installation
-
-```bash
-git clone https://github.com/NullBrunk/Laravel-starter
-cd Laravel-starter
-
-composer install # --no-dev eventually
-npm i
-
-make serv
+# 📖 Changelog
+```markdown
+# [1.0] - 29 avril 2024
+- First commit
+- Initialisation du projet avec composer
+- Mise en place de Laravel
 ```
+
