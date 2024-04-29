@@ -21,7 +21,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=sae23
 
-
 networks:
   sae23:
 
