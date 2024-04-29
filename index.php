@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 */
 
 // On inclut l'autoloader de composer pour éviter d'avoir à include_once une classe dès qu'on en a besoin 
-include_once __DIR__ . "/../vendor/autoload.php";
+include_once __DIR__ . "/vendor/autoload.php";
 
 // À défaut d'utiliser un vrai système de route, on utilise ici un principe de "fichier 
 // carrefour", qui, en fonction de la valeur du paramètre page effectue une certaine action
@@ -28,7 +28,7 @@ switch($page) {
 		break;
 
 	default:
-		include_once "../views/404.php";
+		include_once __DIR__ . "/views/404.php";
 		http_response_code(404);
 }
 
