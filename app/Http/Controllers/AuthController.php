@@ -70,9 +70,8 @@ class AuthController extends Controller
             "domiciliation" => $request["domiciliation"],
             "groupe" => $request["groupe"],
             "sous_groupe" => $request["sous_groupe"],
-            "nom_formation" => $request["nom_formation"],
+            "id_formation" => $request["id_formation"],
             "email" => $request["email"],
-            "name" => $request["name"],
             "mot_de_passe" => self::hash($request["mot_de_passe"]),
         ]);
         dd($user);

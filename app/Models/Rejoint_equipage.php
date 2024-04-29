@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rejoint_equipage extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
 }

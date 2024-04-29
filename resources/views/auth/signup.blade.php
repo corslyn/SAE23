@@ -35,8 +35,15 @@
 
             <div>
                 <div>Nom formation:</div>
-                @error("nom_formation") <div class="error">{{ $message }}</div> @enderror 
-                <input type="text" name="nom_formation" id="nom_formation" value="{{ old("nom_formation") }}" placeholder="RT1" class="@error("nom_formation") error-border @enderror">
+                @error("id_formation") <div class="error">{{ $message }}</div> @enderror 
+                <label for="pet-select">Choose a pet:</label>
+
+                <select name="id_formation">
+                    <option value="1">RT</option>
+                    <option value="2">MMI</option>
+                    <option value="3">GACO</option>
+                </select>
+
             </div>
 
             <div>

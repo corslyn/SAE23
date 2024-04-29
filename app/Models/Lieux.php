@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lieux extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
 }

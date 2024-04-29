@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Possede_vehicule extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
 }

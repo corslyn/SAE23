@@ -29,7 +29,7 @@ class SignupReq extends FormRequest
             "groupe" => "required|max:50",
             "sous_groupe" => "required|max:50",
             "nom_formation" => "required|max:50",
-            "email" => "required|email|max:50|unique:utilisateurs",
+            "email" => "required|email|max:50|unique:etudiants",
             "mot_de_passe" => "required",
             "mot_de_passe_confirmation" => "required|same:mot_de_passe"
         ];
