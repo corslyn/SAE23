@@ -15,6 +15,8 @@ services:
 
   mysql:
     image: mariadb:11
+    ports:
+      - "3306:3306"
     networks:
       - sae23
     environment:

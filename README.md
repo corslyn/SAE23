@@ -10,15 +10,6 @@
 </div>
 
 
-# ⚒️  Installation
-```bash
-# Installez les dépendances et mettre en place l'autoloading de composer
-composer install --no-dev
-# Puis lancez le serveur de dev de PHP en lui indiquant que le / de l'application
-# est dans public (cela évite que des gens mal intentionnés puissent leak le fichier composer.lock)
-sudo php -S 0.0.0.0:80 -t public
-```
-
 # 📖 Changelog
 ```markdown
 # [1.0] - 26 avril 2024
