@@ -69,10 +69,10 @@
             <br>
             <table>
               <tr>
-                  <th>Adresse</th>
-                  <th>Code postal</th>
-                  <th>Ville</th>
-                  <th>Domicilé ici ?</th>
+                  <th>&nbsp;&nbsp;Adresse&nbsp;&nbsp;</th>
+                  <th>&nbsp;Code postal</th>
+                  <th>&nbsp;&nbsp;&nbsp;Ville&nbsp;&nbsp;&nbsp;</th>
+                  <th>Domicilié ici ?</th>
                   <th>Travail ici ?</th>
                   <th>Supprimer</th>
               </tr>
