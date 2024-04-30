@@ -11,12 +11,6 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function app() {
-        return view("app.app", [
-            "date" => Utilisateurs::find(session("id")) -> first(), 
-        ]);
-    }
-
     public function edt() {
         // On test si la table à déja été remplie
         $emploidutemps = Emploidutemps::where("sous_groupe", session("sous_groupe")) -> first();
@@ -24,7 +18,7 @@ class AppController extends Controller
         // On ne trouve aucun emploi du temps ? Alors les tables n'ont pas encore été remplie
         // on va utiliser le fichier JSON plus un parser pour les remplir
         if($emploidutemps === null) {
-
+            return abort(404, "REMPLIT LA TABLE EMPLOI DU TEMPS SALE FOU !");
         }
 
         return view("app.emploidutemps", [

@@ -45,7 +45,7 @@ Route::view("/admin", "app.app") -> name("auth.admin") -> middleware("auth");
 */
 
 Route::name("app.") -> middleware("auth") -> controller(AppController::class) -> group(function () {
-    Route::get("/app",  "app") -> name("app");
+    Route::view("/app",  "index") -> name("app");
     Route::get("/edt",  "edt") -> name("edt");;
 });
 

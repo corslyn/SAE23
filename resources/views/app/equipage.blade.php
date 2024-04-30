@@ -22,7 +22,7 @@
             <h1 style="margin: 0; padding: 0;">Équipes</h1>
             
             <div>
-                @if($leader_of_equipe -> count() === 0)
+                @if(!isset($leader_of_equipe) || $leader_of_equipe -> count() === 0)
                     <p align="center">
                         <b>Vous n'avez pas encore d'équipage, créez-en un:</b>
                     </p>
@@ -40,6 +40,7 @@
                     <p align="center">
                         <b>Liste des membres de votre équipe:</b>
                         
+                        @if(isset($leader_of_equipe))
                         <div class="resultat" style="margin-bottom: 50px; margin-top: 25px;">
                             <br>
                             <table>
@@ -55,29 +56,30 @@
                                     Je recupere l'equipage, de l'equipage grâce a une jointure, je recupère les utilisateurs qui 
                                     ont rejoins    
                                 --}}
-                                @foreach($leader_of_equipe -> equipage() -> first() -> joined_users() -> get() as $joined_user)
-                                    {{-- Puis de rejoins, je recupère l'utilisateur afin de l'afficher --}}
-                                    @php($user = $joined_user -> user() -> first())    
-                                    <tr>
-                                        <td>{{ $user -> email }}</td>
-                                        <td>{{ $user -> nom }}</td>
-                                        <td>{{ $user -> formation }}</td>
-                                        <td>{{ $user -> sous_groupe }}</td>
+                                    @foreach($leader_of_equipe -> equipage() -> first() -> joined_users() -> get() as $joined_user)
+                                        {{-- Puis de rejoins, je recupère l'utilisateur afin de l'afficher --}}
+                                        @php($user = $joined_user -> user() -> first())    
+                                        <tr>
+                                            <td>{{ $user -> email }}</td>
+                                            <td>{{ $user -> nom }}</td>
+                                            <td>{{ $user -> formation }}</td>
+                                            <td>{{ $user -> sous_groupe }}</td>
 
-                                        <td>
-                                            <form class="delete_lieu" action="{{ route("lieux.delete", $joined_user -> id) }}" method="POST">
-                                                @method("DELETE")
-                                                @csrf
-                                                <button>
-                                                    <i class='bx bx-trash-alt'></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>  
-                                @endforeach
-                            </table>
-                        </div>
-                    </p>
+                                            <td>
+                                                <form class="delete_lieu" action="{{ route("lieux.delete", $joined_user -> id) }}" method="POST">
+                                                    @method("DELETE")
+                                                    @csrf
+                                                    <button>
+                                                        <i class='bx bx-trash-alt'></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>  
+                                    @endforeach
+                                </table>
+                            </div>
+                        @endif
+                        </p>
                 @endif
             </div>            
         </div>
@@ -104,6 +106,7 @@
             <h1 style="margin: 0; padding: 0;">Équipe rejointe</h1>
             <p align="center">
                 <b>Voici toutes les équipes que vous avez rejoint:</b>
+                @if($joined_equipe -> count() !== 0)
                 <div class="resultat" style="margin-bottom: 50px; margin-top: 25px;">
                     <table>
                         <br>
@@ -130,6 +133,7 @@
                             @endforeach
                     </table>
                 </div>
+                @endif
             </p>
         </div>
     </section>
