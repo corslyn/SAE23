@@ -13,20 +13,25 @@ class LieuxController extends Controller
 {
     public function show() {
         $lieux = Lieu::where("id_utilisateur", session("id")) -> get();
-        $have_dp = Lieu::where("est_domicile", true) -> where("id_utilisateur", session("id")) -> get() -> count();
+        $have_domicile_principal = Lieu::where("est_domicile", true) -> where("id_utilisateur", session("id")) -> get() -> count();
+        $have_travail_lieu = Lieu::where("est_travail", true) -> where("id_utilisateur", session("id")) -> get() -> count();
+
 
         return view("app.lieux", [
             "lieux" => $lieux,
-            "already_have_domicile" => $have_dp,
+            "already_have_domicile" => $have_domicile_principal,
+            "already_have_travail" => $have_travail_lieu,
+
         ]);
     }   
 
     public function create(AjoutLieuxRequest $request) {
         $is_domicile_principale = $request -> has("checkbox");
+        $is_lieu_travail = $request -> has("checkbox_travail");
 
         if(
-            // Si on n'essaye pas d'ajouter un domaine principal, si on essaye d'ajouter un lieu
-            $is_domicile_principale === false
+            // Si on n'essaye d'ajouter ni un domicile principal ni un lieu de travail
+            $is_domicile_principale === false && $is_lieu_travail === false
             // Et qu'on n'a pas de véhicule
             && session() -> has("id_vehicule") === false
         ) {
@@ -35,22 +40,13 @@ class LieuxController extends Controller
             ]);
         } 
 
-        // Dp = domicile principal
-        $have_dp = Lieu::where("est_domicile", true) -> where("id_utilisateur", session("id")) -> get() -> count();
-        if(
-            // Si on a déja set un domaine principale
-            $have_dp && 
-            // et qu'on n'essaye pas d'ajouter un domaine principal, qu'on on essaye d'ajouter un lieu
-            $is_domicile_principale
-        ) {
-            return back() -> withErrors([ "error" => "Vous ne pouvez pas ajouter un lieu de domicile principal car vous en avez déjà un.", ]);
-        }
 
         Lieu::create([
             "adresse" => $request["adresse"],
             "code_postal" => $request["postal"],
             "ville" => $request["ville"],
             "est_domicile" => $is_domicile_principale,
+            "est_travail" => $is_lieu_travail,
             "id_utilisateur" => session("id"),
         ]);
         

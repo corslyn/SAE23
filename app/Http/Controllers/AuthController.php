@@ -61,7 +61,7 @@ class AuthController extends Controller
         session($data[0]);
 
         # Go to / page
-        return to_route("app.app");
+        return to_route("index");
     }
 
 

@@ -34,7 +34,7 @@ Route::get("logout", function() {
 }) -> name("auth.logout") -> middleware("auth");
 
 
-Route::view("/admin", "app.app") -> name("auth.admin") -> middleware("auth");
+Route::view("/admin", "index") -> name("auth.admin") -> middleware("auth");
 
 
 /*
@@ -45,7 +45,6 @@ Route::view("/admin", "app.app") -> name("auth.admin") -> middleware("auth");
 */
 
 Route::name("app.") -> middleware("auth") -> controller(AppController::class) -> group(function () {
-    Route::view("/app",  "index") -> name("app");
     Route::get("/edt",  "edt") -> name("edt");;
 });
 

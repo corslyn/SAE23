@@ -47,8 +47,17 @@
                     @if(!$already_have_domicile)
                         <div class="form-group">
                             Est-ce que c'est votre domicile ? <input style="width: 45px; margin-top: 40px;" type="checkbox" id="checkbox" name="checkbox">
-                            <p style="color: gray; font-style: italic;">Si ce n'est pas votre lieu de domicile, alors c'est un lieux de destination que vous prendrez en charge avec votre voiture.</p>
                         </div>
+                    @endif
+
+                    @if(!$already_have_travail)
+                        <div class="form-group">
+                            Est-ce que c'est votre lieu de travail ? <input style="width: 45px; margin-top: 40px;" type="checkbox" id="checkbox" name="checkbox_travail">
+                        </div>
+                    @endif
+
+                    @if($already_have_travail || $already_have_domicile)
+                        <p style="color: gray; font-style: italic;">Si ce n'est ni votre lieu de domicile, ni votre lieu de travail, alors ce lieu est un lieu de destination que vous prendrez en charge avec votre voiture.</p>
                     @endif
                     <button type="submit">Envoyer <i class='bx bx-send' ></i></button>
                 </form>
@@ -64,6 +73,7 @@
                   <th>Code postal</th>
                   <th>Ville</th>
                   <th>Domicilé ici ?</th>
+                  <th>Travail ici ?</th>
                   <th>Supprimer</th>
               </tr>
               @foreach($lieux as $lieu)
@@ -73,6 +83,13 @@
                     <td>{{ $lieu -> ville}}</td>
                     <td>
                         @if($lieu -> est_domicile)
+                            Oui
+                        @else
+                            Non
+                        @endif
+                    </td>
+                    <td>
+                        @if($lieu -> est_travail)
                             Oui
                         @else
                             Non

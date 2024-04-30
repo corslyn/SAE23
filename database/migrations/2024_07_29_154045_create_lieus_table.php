@@ -17,6 +17,7 @@ return new class extends Migration
             $table -> string("code_postal");
             $table -> string("ville");
             $table -> boolean("est_domicile");
+            $table -> boolean("est_travail");
 
             $table -> unsignedBigInteger('id_vehicule') -> nullable();
             $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
