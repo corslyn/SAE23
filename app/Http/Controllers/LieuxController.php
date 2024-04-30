@@ -58,6 +58,11 @@ class LieuxController extends Controller
     }
 
     public function delete(Lieu $lieux) {
+        // Si l'utilisateur essaye de supprimer un lieu qui ne lui appartient pas
+        if($lieux -> id_utilisateur !== session("id"))
+            return abort(403);
+
+        // On supprime le lieu de la table
         $lieux -> delete();
         return back();
     }

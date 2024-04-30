@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateEquipageController extends FormRequest
+class JoinEquipageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class CreateEquipageController extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "nom" => "required",
         ];
     }
 }

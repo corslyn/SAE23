@@ -66,6 +66,6 @@ Route::name("lieux.") -> prefix("lieux") -> middleware("auth") -> controller(Lie
 Route::name("equipage.") -> prefix("equipage") -> middleware("auth") -> controller(EquipageController::class) -> group(function () {
     Route::get("/show", "show") -> name("show");
     Route::post("/create", "create") -> name("create");
-    Route::get("/join/{equipage}", "create") -> name("create");
-    Route::delete("/remove/{equipage}", "delete") -> name("delete");
+    Route::post("/join", "join") -> name("join");
+    Route::delete("/remove/{user_join}", "equipage") -> name("delete");
 });

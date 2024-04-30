@@ -11,4 +11,9 @@ class Equipages extends Model
         
     protected $guarded = [];
     public $timestamps = false;
+
+    public function joined_users() {
+        return $this -> hasMany(Rejoint::class, "id_equipage");
+
+    }
 }

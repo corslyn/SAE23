@@ -30,7 +30,7 @@
 
                   <div class="form-group">
                     @error("adresse") <div class="error">{{ $message }}</div> @enderror 
-                    <label for="adresse"><a>Entrer votre adresse</a></label>
+                    <label for="adresse"><a>Entrer une adresse</a></label>
                     <input type="text" id="adresse" name="adresse" value="{{ old("adresse") }}" placeholder=" 10 rue Charles de Gaule">
                   </div>
                   <div class="form-group">
@@ -47,6 +47,7 @@
                     @if(!$already_have_domicile)
                         <div class="form-group">
                             Est-ce que c'est votre domicile ? <input style="width: 45px; margin-top: 40px;" type="checkbox" id="checkbox" name="checkbox">
+                            <p style="color: gray; font-style: italic;">Si ce n'est pas votre lieu de domicile, alors c'est un lieux de destination que vous prendrez en charge avec votre voiture.</p>
                         </div>
                     @endif
                     <button type="submit">Envoyer <i class='bx bx-send' ></i></button>

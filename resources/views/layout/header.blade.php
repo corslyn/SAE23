@@ -9,8 +9,8 @@
         <ul>
               <li>
                 <div class="content">
-                  <a href="equipage.html">EQUIPAGE</a>
-                  <a href="equipage.html">EQUIPAGE</a>
+                  <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
+                  <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
                 </div>
               </li>
               <li>

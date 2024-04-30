@@ -82,8 +82,8 @@
                 
                     <button>Soumettre</button>
                 </form>
+            </div>
             @endif
-        </div>
     </section>
 
 @endsection
