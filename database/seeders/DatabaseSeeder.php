@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            LK1_cours_seeder::class,
             LK2_cours_seeder::class,
             GB1_cours_seeder::class,
             GB2_cours_seeder::class,
-            LK1_cours_seeder::class,
         ]);
     }
 }

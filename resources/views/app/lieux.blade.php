@@ -1,0 +1,99 @@
+@extends('layout.base')
+
+@section("title", "Lieux")
+
+
+@section("body")
+    <section class="container">
+        
+        <div class="banner3">
+            <div class="container2">
+              <form action="{{ route("lieux.create") }}" method="post">
+                  @csrf
+                  @error("error")
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                  @enderror
+
+                  @if(session() -> has("success"))
+                    <script>
+                        Swal.fire({
+                            icon: "success",
+                            title: "Terminé",
+                            text: "Votre voiture a été supprimée !",
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    </script>
+                  @endif
+
+                  <div class="form-group">
+                    @error("adresse") <div class="error">{{ $message }}</div> @enderror 
+                    <label for="adresse"><a>Entrer votre adresse</a></label>
+                    <input type="text" id="adresse" name="adresse" value="{{ old("adresse") }}" placeholder=" 10 rue Charles de Gaule">
+                  </div>
+                  <div class="form-group">
+                    @error("ville") <div class="error">{{ $message }}</div> @enderror 
+                    <label for="ville">Entrer le nom de la ville</label>
+                    <input type="text" id="ville" for="ville" name="ville" value="{{ old("ville") }}" placeholder=" Paris">
+                  </div>
+                  <div class=form-group>
+                    @error("postal") <div class="error">{{ $message }}</div> @enderror 
+                    <label for="text">Entrer le code postal</label>
+                    <input type="text" id="postal" name="postal" placeholder=" 75000" value="{{ old("postal") }}">
+                    </div>
+                    {{-- Si on a pas déja set un domicile principale, on n'afficge pas la checkbox --}}
+                    @if(!$already_have_domicile)
+                        <div class="form-group">
+                            Est-ce que c'est votre domicile ? <input style="width: 45px; margin-top: 40px;" type="checkbox" id="checkbox" name="checkbox">
+                        </div>
+                    @endif
+                    <button type="submit">Envoyer <i class='bx bx-send' ></i></button>
+                </form>
+              </div>
+          </div> 
+          @if($lieux -> count() >= 1)
+          <h2 style="margin: 20px;">Vos lieux: </h2>
+          <div class="resultat" style="margin-bottom: 50px;">
+            <br>
+            <table>
+              <tr>
+                  <th>Adresse</th>
+                  <th>Code postal</th>
+                  <th>Ville</th>
+                  <th>Domicilé ici ?</th>
+                  <th>Supprimer</th>
+              </tr>
+              @foreach($lieux as $lieu)
+                <tr>
+                    <td>{{ $lieu -> adresse}}</td>
+                    <td>{{ $lieu -> code_postal}}</td>
+                    <td>{{ $lieu -> ville}}</td>
+                    <td>
+                        @if($lieu -> est_domicile)
+                            Oui
+                        @else
+                            Non
+                        @endif
+                    </td>
+                    <td>
+                        <form class="delete_lieu" action="{{ route("lieux.delete", $lieu -> id) }}" method="POST">
+                            @method("DELETE")
+                            @csrf
+                            <button>
+                                <i class='bx bx-trash-alt'></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>  
+            @endforeach
+          </table>
+        </div>
+        @endif
+        <div class="margin-bottom: 25px;">
+
+        </div>
+    </section>
+@endsection
+

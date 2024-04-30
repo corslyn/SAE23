@@ -14,23 +14,23 @@ return new class extends Migration
         Schema::create('emploidutemps', function (Blueprint $table) {
             $table -> string("sous_groupe");
 
-            $table -> string("l_debut");
-            $table -> string("l_fin");
+            $table -> string("l_debut") -> nullable();
+            $table -> string("l_fin") -> nullable();
 
-            $table -> string("m_debut");
-            $table -> string("m_fin");
+            $table -> string("m_debut") -> nullable();
+            $table -> string("m_fin") -> nullable();
             
-            $table -> string("me_debut");
-            $table -> string("me_fin");
+            $table -> string("me_debut") -> nullable();
+            $table -> string("me_fin") -> nullable();
             
-            $table -> string("j_debut");
-            $table -> string("j_fin");
+            $table -> string("j_debut") -> nullable();
+            $table -> string("j_fin") -> nullable();
 
-            $table -> string("v_debut");
-            $table -> string("v_fin");
+            $table -> string("v_debut") -> nullable();
+            $table -> string("v_fin") -> nullable();
 
-            $table -> string("s_debut");
-            $table -> string("s_fin");
+            $table -> string("s_debut") -> nullable();
+            $table -> string("s_fin") -> nullable();
         });
     }
 

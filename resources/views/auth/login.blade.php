@@ -1,9 +1,9 @@
 @extends('layout.base')
 
-@section("title", "Login")
-
+@section("title", "Se econnecter")
 
 @section("body")
+
     <section class="container login">
         
         <form action="{{ route("auth.login") }}" method="post">
@@ -38,8 +38,8 @@
 
             <div>
                 @error("number") <div class="error">{{ $message }}</div> @enderror 
-                <label>Email</label>
-                <i class='bx bx-envelope'></i>
+                <label>Code</label>
+                <i class='bx bx-key'></i>
                 <input type="number" name="secret" id="secret" value="{{ old("secret") }}" placeholder="XXXXXX" class="@error("loginerror" ) error-border @enderror">
             </div>
             

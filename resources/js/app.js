@@ -9,10 +9,14 @@ window.addEventListener("DOMContentLoaded", () => {
     select.addEventListener("change", (e) => {
         let value = e.target.value;
         console.log(value);
-        if(value === "Option1") {
+        if(value === "signup") {
             redirect("/signup");
-        } else if(value === "option2") {
+        } else if(value === "login") {
             redirect("/login");
+        } else if(value === "logout") {
+            redirect("/logout");
+        } else if(value === "profile") {
+            redirect("/profile");
         }
     });
 })

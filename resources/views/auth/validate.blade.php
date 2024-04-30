@@ -11,5 +11,8 @@
         <p>
             Ou entrez le secret suivant: {{ $secret }}
         </p>
+        <div align="center">
+            Une fois cela fait, rendez-vous sur la page de login, et utiliser le code à 6 chiffres dans l'input "Code".
+        </div>
     </section>
 @endsection

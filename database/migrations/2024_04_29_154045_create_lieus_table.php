@@ -16,7 +16,13 @@ return new class extends Migration
             $table -> string("adresse");
             $table -> string("code_postal");
             $table -> string("ville");
-            $table -> string("est_domicile");
+            $table -> boolean("est_domicile");
+
+            $table -> unsignedBigInteger('id_vehicule') -> nullable();
+            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
+
+            $table -> unsignedBigInteger('id_utilisateur');
+            $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs') -> onDelete('cascade');
         });
     }
 

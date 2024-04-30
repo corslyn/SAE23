@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EquipageController;
+use App\Http\Controllers\LieuxController;
+use App\Http\Controllers\VehiculeController;
 
 
 Route::view("/", "index") -> name("index");
@@ -20,7 +23,6 @@ Route::middleware("guest") -> name("auth.") -> controller(AuthController::class)
     
     Route::view("/signup", "auth.signup") -> name("signup");
     Route::post("/signup", "signup");
-
 });
 
 Route::get("logout", function() {
@@ -32,6 +34,9 @@ Route::get("logout", function() {
 }) -> name("auth.logout") -> middleware("auth");
 
 
+Route::view("/admin", "app.app") -> name("auth.admin") -> middleware("auth");
+
+
 /*
 |--------------------------------------------------------------------------
 | App routing
@@ -41,4 +46,26 @@ Route::get("logout", function() {
 
 Route::name("app.") -> middleware("auth") -> controller(AppController::class) -> group(function () {
     Route::get("/app",  "app") -> name("app");
+    Route::get("/edt",  "edt") -> name("edt");;
+});
+
+Route::name("vehicule.") -> prefix("vehicule") -> middleware("auth") -> controller(VehiculeController::class) -> group(function () {
+    Route::get("/show", "show") -> name("show");
+    Route::delete("/remove/{vehicule}", "delete") -> name("delete");
+
+    Route::post("/create", "create") -> name("create");
+});
+
+Route::name("lieux.") -> prefix("lieux") -> middleware("auth") -> controller(LieuxController::class) -> group(function () {
+    Route::get("/show", "show") -> name("show");
+    Route::post("/create", "create") -> name("create");
+
+    Route::delete("/remove/{lieux}", "delete") -> name("delete");
+});
+
+Route::name("equipage.") -> prefix("equipage") -> middleware("auth") -> controller(EquipageController::class) -> group(function () {
+    Route::get("/show", "show") -> name("show");
+    Route::post("/create", "create") -> name("create");
+    Route::get("/join/{equipage}", "create") -> name("create");
+    Route::delete("/remove/{equipage}", "delete") -> name("delete");
 });

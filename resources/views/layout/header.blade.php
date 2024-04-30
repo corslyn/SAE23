@@ -7,28 +7,35 @@
 
     <div id="center">
         <ul>
-            <li>
+              <li>
                 <div class="content">
-                  <a href="index.html">Covoiturage</a>
-                  <a href="index.html">Covoiturage</a>
+                  <a href="equipage.html">EQUIPAGE</a>
+                  <a href="equipage.html">EQUIPAGE</a>
                 </div>
               </li>
               <li>
                 <div class="content">
-                  <a href="index.html">Trajet</a>
-                  <a href="index.html">Trajet</a>
+                  <a href="{{ route("lieux.show") }}">LIEUX</a>
+                  <a href="{{ route("lieux.show") }}">LIEUX</a>
                 </div>
               </li>
               <li>
                 <div class="content">
-                  <a href="index.html">Mes parcours</a>
-                  <a href="index.html">Mes parcours</a>
+                  <a href="{{ route("vehicule.show") }}">VEHICULE</a>
+                  <a href="{{ route("vehicule.show") }}">VEHICULE</a>
                 </div>
               </li>
               <li>
                 <div class="content">
-                  <a href="index.html">Historique</a>
-                  <a href="index.html">Historique</a>
+                  <a href="{{ route("app.edt") }}">EDT</a>
+                  <a href="{{ route("app.edt") }}">EDT</a>
+                </div>
+              </li>
+
+              <li>
+                <div class="content">
+                  <a href="{{ route("auth.admin") }}">ADMIN</a>
+                  <a href="{{ route("auth.admin") }}">ADMIN</a>
                 </div>
               </li>
         </ul>
@@ -38,8 +45,13 @@
             <i class='img2 bx bx-user'></i>
             <select id="choix" name="choix">
                 <option value="default">Auth</option>
-                <option value="Option1">Inscription</option>
-                <option value="option2">Connexion</option>
+                @if(session() -> has('id'))
+                  <option value="profile">Mon profil</option>
+                  <option value="logout">Déconnexion</option>
+                @else
+                  <option value="signup">Inscription</option>
+                  <option value="login">Connexion</option>
+                @endif
             </select>
     </div>
 </div>

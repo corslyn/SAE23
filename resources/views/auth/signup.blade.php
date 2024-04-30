@@ -1,9 +1,10 @@
 @extends('layout.base')
 
-@section("title", "Signup")
+@section("title", "S'inscrire")
 
 
 @section("body")
+
     <section class="container login">
         
         <form action="{{ route("auth.signup") }}" method="post">

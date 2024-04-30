@@ -24,7 +24,7 @@ return new class extends Migration
             $table -> string('sous_groupe');
 
             $table -> unsignedBigInteger('id_vehicule') -> nullable();
-            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules') -> onDelete('cascade');
+            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
 
             $table -> timestamps();
         });

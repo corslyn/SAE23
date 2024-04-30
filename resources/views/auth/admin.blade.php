@@ -1,5 +1,8 @@
 @extends('layout.base')
 
+@section("title", "Admin")
+
+
 @section("body")
     <section class="container">
         

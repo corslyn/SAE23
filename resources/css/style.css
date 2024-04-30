@@ -19,8 +19,8 @@ body {
     font-family: "Open Sans", sans-serif;
     font-size: 17px;
         
-    background-color: var(--bg-color);
-    color: var(--fg-color);
+    background-color: var(--fg-blue-clear);
+    color: var(--bg-beige);
 
     height: 100vh;
 }
@@ -30,8 +30,8 @@ a {
 }
 
 .container {
+  padding-right: 7vw;
   padding-left: 7vw;
-  padding-top: 17vh;
 }
 
 .hidden {
@@ -61,7 +61,6 @@ a {
   h2 {
     color: var(--bg-beige);
     text-align: center;
-    margin-top: 100px;
     font-weight: bolder;
   }
   
@@ -78,15 +77,26 @@ a {
     right: 0;
     z-index: 1000;
     justify-content: space-between;
+    border-bottom: 3px solid #3081d0;
+
   }
   
-  .banner > * {
-    width: 33%;
+  .banner #left {
+    width: 20vw;
+  }
+
+
+  .banner #center {
+    display: flex;
+    width: 60vw;
+    justify-content: center;
   }
 
   .right {
     display: flex;
     justify-content: right;
+    width: 20vw;
+
   }
 
   .banner.show {
@@ -97,6 +107,7 @@ a {
   .banner h2 {
       display: flex;
       text-align: center;
+      margin-top: 100px;
   }
   
   .banner img {
@@ -136,7 +147,7 @@ a {
   
   /* bandeau numéro 2 */
   .banner2 {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -144,7 +155,8 @@ a {
     background-size: cover; /* Ajuste la taille de l'image pour couvrir l'ensemble du bandeau */
     background-position: center; /* Centre l'image dans le bandeau */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    height: 450px; /* Définissez la hauteur de votre bandeau */
+    height: 221px !important; /* Définissez la hauteur de votre bandeau */
+    margin-top: -7px;
     color: white;
     font-weight: bolder;
     opacity: 0.9;
@@ -165,8 +177,15 @@ a {
     z-index: 1; /* Mettre en premier plan */
   }
   
+  .banner2 h1 {
+    text-align: center;
+    font-size: 42px;
+  }
   .banner2 h2 {
     text-align: center;
+    font-size: 30px;
+    margin-top: 100px;
+
   }
   
   .banner2 img {
@@ -239,7 +258,7 @@ a {
     background-color: var(--bg-beige);
     border: 0px;
     width: 215px;
-    font-size: 27px;
+    font-size: 22px;
     color: var(--fg-blue-clear);
     font-weight: 600;
     padding: 2px 30px;
@@ -263,27 +282,29 @@ a {
     display: flex;
 }
 
-.login form {
+ form, .carre-beige {
     margin: auto;
     background-color: #fff5c2;
     padding: 20px 30px;
     border-radius: 10px;
+    color: var(--fg-blue-clear);
+    margin-top: 20px !important;
 }
 
-.login form h1 {
+ form h1 {
     color: #0078AA;
     font-weight: 700;
     font-size: 36px;
     margin-top: 30px;
 }
 
-.login form label {
+ form label {
     margin-top: 10px;
     display: block;
     color: #3081D0;
 }
 
-.login form input {
+ form input {
     background-color: inherit;
     border: 0px;
     border-bottom: 1px solid black;
@@ -292,7 +313,7 @@ a {
     width: 450px;
 }
 
-.login form button {
+form button {
     width: 95%;
     margin-left: 2.5%;
     border-radius: 15px;
@@ -304,18 +325,196 @@ a {
     border: 2px solid #0078aa;
     color: #fff5c2;
     cursor: pointer;
+    margin-bottom: 10px;
 } 
 
-.login form button:hover {
+form button:hover {
     background-color: #fff5c2;
     color: #0078aa;
     border: 2px solid #0078aa;
     transition: all 0.5s;
 } 
 
-.login form select {
+form select {
     background-color: #F6F6F6;
     border: 0px;
     padding: 7px;
     border-radius: 7px;
+}
+
+.edt-container {
+  display: flex;
+  width: 100%;
+}
+
+.horaires {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#edt {
+  margin-top: 40px;
+  border: 3px solid var(--fg-blue-clear);
+  height: 60vh;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+#edt .jour {
+  border-right: 1.5px solid var(--fg-blue-clear);
+  border-left: 1.5px solid var(--fg-blue-clear);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-car {
+    display: flex;
+}
+
+.delete-car form {
+  margin: 0;
+  margin-left: auto;
+  padding: 16px 30px;
+  background-color: var(--bg-color);
+  background: inherit;
+}
+
+.delete-car form button, .delete_lieu button {
+    margin-left: auto;
+    border-radius: 8px;
+    color: white;
+    font-size: 20px;
+    width: 170px;
+    background-color: #ff6500 !important;
+    border: 1px solid #ff6500 !important;
+    margin-top: 0px;
+    
+}
+
+.delete-car form button:hover, .delete_lieu button:hover {
+    background-color: #f69351;
+    color: white;
+}
+
+
+/* Bandeau 3*/
+
+.banner3 {
+  background-color: #3081D0;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner3 h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.banner3 p {
+  font-size: 18px;
+}
+
+
+.alexis-input, 
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+
+/* Barre de recherche */
+.search-bar {
+  margin-top: -60px;
+  margin-right: 100px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  background: rgb(240, 239, 239);
+  outline: none;
+  font-size: 16px;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.search-input::placeholder {
+  color: black;
+}
+
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
+.search-button {
+  background-color: rgb(240, 239, 239);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-button i {
+  font-size: 24px;
+}
+
+/*Page blanche des resultat*/
+.resultat {
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: var(--fg-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.login form {
+  margin-top: 135px;
+}
+
+.delete_lieu {
+  padding: 0px !important;
+  width: 50px !important;
+  background-color: inherit;
+}
+
+
+.delete_lieu button {
+  padding: 0px !important;
+  width: 50px !important;
+  background-color: inherit;
 }
