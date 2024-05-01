@@ -1,30 +1,84 @@
-#!/bin/php
-
+#!/usr/bin/env php
 <?php
 
-if(!isset($argv[1])) die("Usage: {$argv[0]} -h\n");
+$GLOBALS["BOLDGREEN"] = "\x1b[1m\x1b[32m";
+$GLOBALS["WHITE"] = "\x1b[97m";
+$GLOBALS["BOLDWHITE"] = "\x1b[1m\x1b[97m";
+$GLOBALS["BOLDCYAN"] = "\x1b[1m\x1b[36m";
+$GLOBALS["CYAN"] = "\x1b[36m";
+$GLOBALS["RED"] = "\033[31m";
+$GLOBALS["BOLDRED"] = "\x1b[1m\x1b[31m";
+$GLOBALS["BLUE"] = "\x1b[34m";
+
+
+$GLOBALS["RESET"] = "\x1b[0m";
+
+function show_help(array $argv) {
+    echo <<< EOL
+    Database management tool
+
+    {$GLOBALS["BOLDGREEN"]}Usage: {$GLOBALS["BOLDCYAN"]}$argv[0] [OPTIONS] [FILE] 
+
+    {$GLOBALS["BOLDGREEN"]}Options: 
+        {$GLOBALS["BOLDCYAN"]}-r{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--remove  <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (replace)
+        {$GLOBALS["BOLDCYAN"]}-a{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--add     <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (add)
+        {$GLOBALS["BOLDCYAN"]}-x{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--export  <OUTPUT_JSON>       {$GLOBALS["WHITE"]}Database to JSON    
+    EOL;
+   
+   die;
+}
+
+function error($argv) {
+    $filename = __FILE__;
+    $padding = str_repeat(" ", strlen($argv[0] . $argv[1]));
+    echo <<< EOL
+    {$GLOBALS["BOLDRED"]}error[418]{$GLOBALS["WHITE"]}: Missing JSON file after {$argv[1]} option
+    {$GLOBALS["BLUE"]} --> {$GLOBALS["WHITE"]}{$filename}
+     {$GLOBALS["BLUE"]} |
+    {$GLOBALS["BLUE"]}  |    {$argv[0]} {$argv[1]}
+    {$GLOBALS["BLUE"]}  |    {$padding}{$GLOBALS["BOLDRED"]}  ^ Missing filename here
+
+    {$GLOBALS["BOLDRED"]}error{$GLOBALS["WHITE"]}: could not run the file due to previous error 
+
+    EOL;
+    die;
+}
+
+
+
+
+if(!isset($argv[1])) {
+    show_help($argv);
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "sae23";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn -> connect_error) {
+    die("Connection failed: " . $conn -> connect_error);
+}
+
+
+
 
 switch ($argv[1]) {
     case "-h":
-        echo "Usage: {$argv[0]} [COMMAND]\n";
-        echo "-r <input_json>   JSON to database (replace)\n";
-        echo "-m <input_json>   JSON to database (add)\n";
-        echo "-o <output_json>  Database to JSON\n";
+    case "--help":
+        show_help($argv);
         break;
+
     case "-r":
+        if(!isset($argv[2])) {
+            error($argv);
+        }
+
         $json_file = $argv[2];
         $jsonData = file_get_contents($json_file);
         $array = json_decode($jsonData, true);
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "sae23";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
         $tables = [
             "deplacements",
             "emploidutemps",
@@ -36,10 +90,10 @@ switch ($argv[1]) {
             "vehicules",
         ];
 
-        for ($i = 0; $i < sizeof($tables); $i++) {
-            $sql = "DELETE FROM $tables[$i]";
-            if ($conn->query($sql) !== true) {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+        foreach($tables as $table) {
+            $sql = "DELETE FROM $table";
+            if ($conn -> query($sql) !== true) {
+                echo "Error: " . $sql . "<br>" . $conn -> error;
             }
         }
 
@@ -50,30 +104,25 @@ switch ($argv[1]) {
                 $values = str_replace("''", "null", $values);
                 $sql = "INSERT INTO $tableName ($columns) VALUES ($values)";
 
-                if ($conn->query($sql) !== true) {
+                if ($conn -> query($sql) !== true) {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
             }
         }
 
-        echo "Data imported successfully";
-        $conn->close();
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data import successfully";
+        $conn -> close();
         break;
 
-    case "-m":
+    case "-a":
+    case "--add":
+        if(!isset($argv[2])) {
+             error($argv);
+        }
+     
         $json_file = $argv[2];
         $jsonData = file_get_contents($json_file);
         $array = json_decode($jsonData, true);
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "sae23";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
         foreach ($array as $tableName => $tableRows) {
             foreach ($tableRows as $row) {
@@ -87,19 +136,15 @@ switch ($argv[1]) {
             }
         }
 
-        echo "Data imported successfully";
-        $conn->close();
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data import successfully";
+        $conn -> close();
         break;
-    case "-o":
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "sae23";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+    case "-x":
+    case "--export":
+        if(!isset($argv[2])) {
+            error($argv);
         }
 
         $tables = [
@@ -114,6 +159,7 @@ switch ($argv[1]) {
         ];
 
         $data = [];
+
         foreach ($tables as $table) {
             $sql = "SELECT * FROM $table";
             $result = $conn->query($sql);
@@ -128,8 +174,10 @@ switch ($argv[1]) {
         $jsonData = json_encode($data, JSON_PRETTY_PRINT);
 
         file_put_contents($argv[2], $jsonData);
-        $conn->close();
+        $conn -> close();
+
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data exported successfully";
+
         break;
 }
-?>
 
