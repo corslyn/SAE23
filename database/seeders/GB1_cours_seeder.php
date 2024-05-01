@@ -25,8 +25,8 @@ class GB1_cours_seeder extends Seeder
             "j_fin" => "12h30",
             "v_debut" => "8h",
             "v_fin" => "18h",
-            "s_debut" => "",
-            "s_fin" => ""
+            "s_debut" => null,
+            "s_fin" => null
         ]);
     }
 }

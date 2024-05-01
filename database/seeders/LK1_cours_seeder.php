@@ -25,8 +25,8 @@ class LK1_cours_seeder extends Seeder
             "j_fin" => "15h",
             "v_debut" => "13h30",
             "v_fin" => "18h00",
-            "s_debut" => "",
-            "s_fin" => ""
+            "s_debut" => null,
+            "s_fin" => null
         ]);
     }
 }
