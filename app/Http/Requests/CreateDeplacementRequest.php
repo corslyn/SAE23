@@ -25,6 +25,7 @@ class CreateDeplacementRequest extends FormRequest
             "deplacement" => "required|integer",
             "deplacement_depart" => "required|integer",
             "date" => "required",
+            "duree" => "required|integer",
         ];
     }
 }

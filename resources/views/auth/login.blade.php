@@ -12,7 +12,9 @@
             @csrf
  
             @error("loginerror")
-                {{ $message }}
+                <div class="error">
+                    {{ $message }}
+                </div>
             @enderror
 
             @if(session() -> has("success"))

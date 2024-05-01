@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('deplacements', function (Blueprint $table) {
             $table -> increments('id');
             $table -> datetime("date");
+            $table -> integer('duree');
 
 
             $table -> integer('id_lieu_depart') -> unsigned();

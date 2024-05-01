@@ -27,7 +27,7 @@ class DeplacementController extends Controller
 
         // Recuperer tous les déplacements prévus pour cet utilisateur
         $tous_les_deplacements_prévus = Rejoint::select(
-            "nom_equipage", "date",
+            "nom_equipage", "date", "duree",
             "lieux_départ.code_postal as code_postal_départ", 
             "lieux_départ.ville as ville_départ", 
             "lieux_départ.adresse as adresse_départ",
@@ -63,6 +63,7 @@ class DeplacementController extends Controller
             "id_lieu_depart" => $request["deplacement_depart"],
             "date" => $request["date"],
             "id_equipage" => $id_equipage,
+            "duree" => $request["duree"],
         ]);
 
         return back();

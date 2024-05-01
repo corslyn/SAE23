@@ -84,13 +84,13 @@ Route::name("deplacement.") -> prefix("deplacement") -> middleware("auth") -> co
 
 
 //XXXX
-Route::name("recommendation.") -> prefix("recommendation") -> middleware("auth") -> controller(EquipageController::class) -> group(function () {
+Route::name("recommendation.") -> prefix("recommendation") -> middleware("auth") -> controller(RecommendController::class) -> group(function () {
     Route::get("/show", "show") -> name("show");
-    Route::post("/create", "create") -> name("create");
+//     Route::post("/create", "create") -> name("create");
 
-    Route::get("/join", "join") -> name("join");
-    Route::delete("/quit/{rejoint}", "quit") -> name("quit");
+//     Route::get("/join", "join") -> name("join");
+//     Route::delete("/quit/{rejoint}", "quit") -> name("quit");
 
-    Route::delete("/remove/{user_join}", "delete") -> name("delete");
+//     Route::delete("/remove/{user_join}", "delete") -> name("delete");
 
 });
