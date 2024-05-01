@@ -1,0 +1,262 @@
+{
+    "deplacements": [
+        {
+            "id": "1",
+            "date": "2024-05-29 12:24:00",
+            "id_lieu_depart": "2",
+            "id_lieu_arrive": "3",
+            "id_equipage": "1",
+            "duree": "2000"
+        },
+        {
+            "id": "6",
+            "date": "2024-05-31 11:11:00",
+            "id_lieu_depart": "4",
+            "id_lieu_arrive": "6",
+            "id_equipage": "2",
+            "duree": "21"
+        },
+        {
+            "id": "7",
+            "date": "2024-05-10 00:00:00",
+            "id_lieu_depart": "4",
+            "id_lieu_arrive": "6",
+            "id_equipage": "2",
+            "duree": "10"
+        },
+        {
+            "id": "8",
+            "date": "2024-05-09 11:11:00",
+            "id_lieu_depart": "1",
+            "id_lieu_arrive": "1",
+            "id_equipage": "1",
+            "duree": "110"
+        }
+    ],
+    "emploidutemps": [
+        {
+            "sous_groupe": "LK1",
+            "l_debut": "9h30",
+            "l_fin": "16h30",
+            "m_debut": "8h",
+            "m_fin": "12h30",
+            "me_debut": "8h",
+            "me_fin": "18h",
+            "j_debut": "9h30",
+            "j_fin": "15h",
+            "v_debut": "13h30",
+            "v_fin": "18h00",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "LK2",
+            "l_debut": "8h30",
+            "l_fin": "12h30",
+            "m_debut": "8h",
+            "m_fin": "18",
+            "me_debut": "9h30",
+            "me_fin": "16h30",
+            "j_debut": "13h30",
+            "j_fin": "15h",
+            "v_debut": "8h",
+            "v_fin": "18h",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "GB1",
+            "l_debut": "8h30",
+            "l_fin": "18h",
+            "m_debut": "8h",
+            "m_fin": "18h",
+            "me_debut": "8h",
+            "me_fin": "9h30",
+            "j_debut": "11h",
+            "j_fin": "12h30",
+            "v_debut": "8h",
+            "v_fin": "18h",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "GB2",
+            "l_debut": "8h30",
+            "l_fin": "16h30",
+            "m_debut": "8h",
+            "m_fin": "16h30",
+            "me_debut": "8h",
+            "me_fin": "18h",
+            "j_debut": "9h30",
+            "j_fin": "15h",
+            "v_debut": "11h",
+            "v_fin": "12h30",
+            "s_debut": null,
+            "s_fin": null
+        }
+    ],
+    "equipages": [
+        {
+            "id": "2",
+            "nom_equipage": "20$ is 20$"
+        },
+        {
+            "id": "1",
+            "nom_equipage": "admin"
+        }
+    ],
+    "lieus": [
+        {
+            "id": "1",
+            "adresse": "10 rue du petit bois",
+            "code_postal": "1",
+            "ville": "A",
+            "est_domicile": "0",
+            "est_travail": "0",
+            "id_vehicule": null,
+            "id_utilisateur": "3"
+        },
+        {
+            "id": "2",
+            "adresse": "10 rue de la ou j'habite",
+            "code_postal": "92000",
+            "ville": "Paris",
+            "est_domicile": "1",
+            "est_travail": "0",
+            "id_vehicule": null,
+            "id_utilisateur": "3"
+        },
+        {
+            "id": "3",
+            "adresse": "10 rue charles gaule",
+            "code_postal": "13000",
+            "ville": "Marseille",
+            "est_domicile": "0",
+            "est_travail": "0",
+            "id_vehicule": null,
+            "id_utilisateur": "3"
+        },
+        {
+            "id": "4",
+            "adresse": "crous rene thom",
+            "code_postal": "25200",
+            "ville": "montbe",
+            "est_domicile": "1",
+            "est_travail": "0",
+            "id_vehicule": null,
+            "id_utilisateur": "4"
+        },
+        {
+            "id": "5",
+            "adresse": "iut r&t montbe",
+            "code_postal": "25200",
+            "ville": "montbe",
+            "est_domicile": "0",
+            "est_travail": "1",
+            "id_vehicule": null,
+            "id_utilisateur": "4"
+        },
+        {
+            "id": "6",
+            "adresse": "norma",
+            "code_postal": "25200",
+            "ville": "montbe",
+            "est_domicile": "0",
+            "est_travail": "0",
+            "id_vehicule": null,
+            "id_utilisateur": "4"
+        }
+    ],
+    "rejoints": [
+        {
+            "id": "1",
+            "est_chef": "1",
+            "id_equipage": "1",
+            "id_utilisateur": "3"
+        },
+        {
+            "id": "2",
+            "est_chef": "0",
+            "id_equipage": "1",
+            "id_utilisateur": "2"
+        },
+        {
+            "id": "3",
+            "est_chef": "1",
+            "id_equipage": "2",
+            "id_utilisateur": "4"
+        },
+        {
+            "id": "4",
+            "est_chef": "0",
+            "id_equipage": "2",
+            "id_utilisateur": "3"
+        }
+    ],
+    "utilisateurs": [
+        {
+            "id": "1",
+            "nom": "A23",
+            "email": "a2f@localhost",
+            "mot_de_passe": "e9b35379a4a2155324153569bea58a99de746e9e1603da9721bdd06271bebb2512358b3a65dd5631f5251796f444cc7047d1aacd49d65e2928343c6b8aa79052",
+            "secret": "TSQILWPNPQWPGR62MOJGM5T24QOMF2G6",
+            "is_admin": "0",
+            "formation": "RT1",
+            "sous_groupe": "LK1",
+            "id_vehicule": null,
+            "created_at": "2024-04-30 19:07:48",
+            "updated_at": "2024-04-30 22:58:45"
+        },
+        {
+            "id": "2",
+            "nom": "A",
+            "email": "a@a.a",
+            "mot_de_passe": "e9b35379a4a2155324153569bea58a99de746e9e1603da9721bdd06271bebb2512358b3a65dd5631f5251796f444cc7047d1aacd49d65e2928343c6b8aa79052",
+            "secret": null,
+            "is_admin": "0",
+            "formation": "RT1",
+            "sous_groupe": "GB1",
+            "id_vehicule": null,
+            "created_at": "2024-04-30 19:07:48",
+            "updated_at": "2024-04-30 22:58:45"
+        },
+        {
+            "id": "3",
+            "nom": "Admin",
+            "email": "admin@localhost",
+            "mot_de_passe": "857b47cfadee1b62e6057c23d3cb880e7d5c5c19edcd95c71d3a0b4a0164c21445d3afa8acecc86099d54c9696db0e5a953634b44b1652fbdf5838bff97f3d4b",
+            "secret": null,
+            "is_admin": "1",
+            "formation": "RT1",
+            "sous_groupe": "LK2",
+            "id_vehicule": "1",
+            "created_at": "2024-04-30 19:07:48",
+            "updated_at": "2024-05-01 16:49:25"
+        },
+        {
+            "id": "4",
+            "nom": "TEST",
+            "email": "test@test.test",
+            "mot_de_passe": "e9b35379a4a2155324153569bea58a99de746e9e1603da9721bdd06271bebb2512358b3a65dd5631f5251796f444cc7047d1aacd49d65e2928343c6b8aa79052",
+            "secret": null,
+            "is_admin": "0",
+            "formation": "RT1",
+            "sous_groupe": "LK2",
+            "id_vehicule": "2",
+            "created_at": "2024-05-01 20:18:42",
+            "updated_at": "2024-05-01 20:22:14"
+        }
+    ],
+    "vehicules": [
+        {
+            "id": "1",
+            "immatriculation": "X",
+            "nombre_places": "10"
+        },
+        {
+            "id": "2",
+            "immatriculation": "test_vehicule",
+            "nombre_places": "2"
+        }
+    ]
+}
