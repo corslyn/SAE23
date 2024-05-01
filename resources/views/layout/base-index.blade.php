@@ -19,12 +19,12 @@
     </head>
 
     <body>
+        @include("layout.header")
         <div class="banner2" style="height: 550px !important;">
             <h1>FCSM Drive</h1>
             <h2>Roulez, Partagez, Économisez : Votre solution de covoiturage facile et écologique !</h2>
         </div>
 
-        @include("layout.header")
         @yield("body")
     </body>
 

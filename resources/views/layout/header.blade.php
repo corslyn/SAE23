@@ -7,37 +7,39 @@
 
     <div id="center">
         <ul>
-              <li>
+            <li>
+              <div class="content">
+                <a href="{{ route("vehicule.show") }}">VEHICULE</a>
+                <a href="{{ route("vehicule.show") }}">VEHICULE</a>
+              </div>
+            </li>
+            <li>
+              <div class="content">
+                <a href="{{ route("lieux.show") }}">LIEUX</a>
+                <a href="{{ route("lieux.show") }}">LIEUX</a>
+              </div>
+            </li>
+            <li>
+              <div class="content">
+                <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
+                <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
+              </div>
+            </li>
+            
+            <li>
+              <div class="content">
+                <a href="{{ route("deplacement.show") }}">DEPLACEMENTS</a>
+                <a href="{{ route("deplacement.show") }}">DEPLACEMENTS</a>
+              </div>
+            </li>
+              
+            <li>
                 <div class="content">
-                  <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
-                  <a href="{{ route("equipage.show") }}">EQUIPAGE</a>
+                  <a href="{{ route("auth.admin") }}">ADMIN</a>
+                  <a href="{{ route("auth.admin") }}">ADMIN</a>
                 </div>
-              </li>
-              <li>
-                <div class="content">
-                  <a href="{{ route("lieux.show") }}">LIEUX</a>
-                  <a href="{{ route("lieux.show") }}">LIEUX</a>
-                </div>
-              </li>
-              <li>
-                <div class="content">
-                  <a href="{{ route("vehicule.show") }}">VEHICULE</a>
-                  <a href="{{ route("vehicule.show") }}">VEHICULE</a>
-                </div>
-              </li>
-              <li>
-                <div class="content">
-                  <a href="{{ route("app.edt") }}">EDT</a>
-                  <a href="{{ route("app.edt") }}">EDT</a>
-                </div>
-              </li>
+            </li>
 
-              <li>
-                <div class="content">
-                  <a href="{{ route("auth.admin") }}">ADMIN</a>
-                  <a href="{{ route("auth.admin") }}">ADMIN</a>
-                </div>
-              </li>
         </ul>
     </div>
   
@@ -46,6 +48,7 @@
             <select id="choix" name="choix">
                 <option value="default">Auth</option>
                 @if(session() -> has('id'))
+                <option value="edt">Emploi du temps</option>
                   <option value="profile">Mon profil</option>
                   <option value="logout">Déconnexion</option>
                 @else

@@ -2,8 +2,9 @@
 
 @section("title", "Véhicule")
 
-
 @section("body")
+        <h2>Ajouter ou supprimer votre véhicule ici !</h2>
+    </div>
     <section class="container">
 
         @if(session() -> has("deleted_vehicule"))
@@ -21,10 +22,6 @@
         @if($has_vehicle)
         <div class="carre-beige">
             <h1 style="margin: 0; padding: 0;">Véhicule</h1>
-            
-            <p align="center">
-                    <b>Vous avez déjà un véhicule dont voici les informations:</b>
-                </p>
                 <br>
                 <div class="delete-car">
                     <div>
@@ -63,9 +60,6 @@
                 </div>
             
             @else
-                <p align="center">
-                    Vous n'avez pas encore ajouter de véhicule, veuillez en ajouter un avec le formulaire ci-dessous
-                </p>
                 <br>
 
                 <form action="{{ route("vehicule.create") }}" method="POST">

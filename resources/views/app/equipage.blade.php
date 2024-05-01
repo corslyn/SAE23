@@ -2,8 +2,9 @@
 
 @section("title", "Équipage")
 
-
 @section("body")
+        <h2>Créez une équipe, rejoignez une équipe, affichez les équipes rejointes</h2>
+    </div>
     <section class="container">
 
         @if(session() -> has("deleted_vehicule"))

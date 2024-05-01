@@ -2,8 +2,9 @@
 
 @section("title", "Lieux")
 
-
 @section("body")
+        <h2>Ajoutez votre domicile, le lieu ou vous travaillez, et le lieu ou vous pouvez amenez les autres en covoiturage</h2>
+    </div>
     <section class="container">
         
         <div class="banner3">
@@ -68,14 +69,19 @@
           <div class="resultat" style="margin-bottom: 50px;">
             <br>
             <table>
-              <tr>
-                  <th>&nbsp;&nbsp;Adresse&nbsp;&nbsp;</th>
-                  <th>&nbsp;Code postal</th>
-                  <th>&nbsp;&nbsp;&nbsp;Ville&nbsp;&nbsp;&nbsp;</th>
-                  <th>Domicilié ici ?</th>
-                  <th>Travail ici ?</th>
-                  <th>Supprimer</th>
-              </tr>
+                <tr>
+                    <th>&nbsp;&nbsp;&nbsp;Adresse&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;Code postal&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;Ville&nbsp;&nbsp;&nbsp;</th>
+                    <th>Domicilié <br> ici ?</th>
+                    <th>Travail <br> ici ?</th>
+                    <th>
+                            Lieu que <br>
+                        vous prenez<br>
+                        en charge ?
+                    </th>
+                    <th>Supprimer</th>
+                </tr>
               @foreach($lieux as $lieu)
                 <tr>
                     <td>{{ $lieu -> adresse}}</td>
@@ -83,16 +89,24 @@
                     <td>{{ $lieu -> ville}}</td>
                     <td>
                         @if($lieu -> est_domicile)
-                            Oui
+                            <p class="success">Oui</p>
                         @else
-                            Non
+                            <p class="error">Non</p>
                         @endif
                     </td>
                     <td>
                         @if($lieu -> est_travail)
-                            Oui
+                            <p class="success">Oui</p>
                         @else
-                            Non
+                            <p class="error">Non</p>
+                        @endif
+                    </td>
+
+                    <td>
+                        @if(!($lieu -> est_travail || $lieu -> est_domicile))
+                            <p class="success">Oui</p>
+                        @else
+                            <p class="error">Non</p>
                         @endif
                     </td>
                     <td>

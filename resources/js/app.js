@@ -17,6 +17,8 @@ window.addEventListener("DOMContentLoaded", () => {
             redirect("/logout");
         } else if(value === "profile") {
             redirect("/profile");
+        } else if(value === "edt") {
+            redirect("/edt");
         }
     });
 })

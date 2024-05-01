@@ -155,7 +155,7 @@ a {
     background-size: cover; /* Ajuste la taille de l'image pour couvrir l'ensemble du bandeau */
     background-position: center; /* Centre l'image dans le bandeau */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    height: 221px !important; /* Définissez la hauteur de votre bandeau */
+    height: 242px !important; /* Définissez la hauteur de votre bandeau */
     margin-top: -7px;
     color: white;
     font-weight: bolder;

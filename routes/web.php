@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DeplacementController;
 use App\Http\Controllers\EquipageController;
 use App\Http\Controllers\LieuxController;
 use App\Http\Controllers\VehiculeController;
@@ -67,4 +68,8 @@ Route::name("equipage.") -> prefix("equipage") -> middleware("auth") -> controll
     Route::post("/create", "create") -> name("create");
     Route::post("/join", "join") -> name("join");
     Route::delete("/remove/{user_join}", "equipage") -> name("delete");
+});
+
+Route::name("deplacement.") -> prefix("deplacement") -> middleware("auth") -> controller(DeplacementController::class) -> group(function () {
+    Route::get("/show", "show") -> name("show");
 });

@@ -2,8 +2,9 @@
 
 @section("title", "Emploi du temps")
 
-
 @section("body")
+        <h2>Roulez, Partagez, Économisez : Votre solution de covoiturage facile et écologique !</h2>
+    </div>
     <section class="container">
         
         <h1 style="padding-top: 10px; margin: 0px !important;" align="center">Emploi du temps</h1>
