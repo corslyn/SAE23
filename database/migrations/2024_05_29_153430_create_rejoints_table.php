@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rejoints', function (Blueprint $table) {
-            $table -> id();
+            $table -> increments('id');
             $table -> boolean("est_chef");
 
-            $table -> unsignedBigInteger('id_equipage');
-            $table -> foreign('id_equipage') -> references('id') -> on('equipages') -> onDelete('cascade');
+            $table -> integer('id_equipage') -> unsigned();
+            $table -> foreign('id_equipage') -> references('id') -> on('equipages');
 
-            $table -> unsignedBigInteger('id_utilisateur');
-            $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs') -> onDelete('cascade');
+            $table -> integer('id_utilisateur') -> unsigned();
+            $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs');
         });
     }
 

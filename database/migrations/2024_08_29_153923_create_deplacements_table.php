@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('deplacements', function (Blueprint $table) {
-            $table -> id();
+            $table -> increments('id');
             $table -> datetime("date");
 
 
-            $table -> unsignedBigInteger('id_lieu_depart');
-            $table -> foreign('id_lieu_depart') -> references('id') -> on('lieus') -> onDelete('cascade');
+            $table -> integer('id_lieu_depart') -> unsigned();
+            $table -> foreign('id_lieu_depart') -> references('id') -> on('lieus');
 
-            $table -> unsignedBigInteger('id_lieu_arrive');
-            $table -> foreign('id_lieu_arrive') -> references('id') -> on('lieus') -> onDelete('cascade');
+            $table -> integer('id_lieu_arrive') -> unsigned();
+            $table -> foreign('id_lieu_arrive') -> references('id') -> on('lieus');
 
         });
     }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
-            $table -> id();
+            $table -> increments('id');
             $table -> string('nom');
             $table -> string('email') -> unique();
 
@@ -23,7 +23,7 @@ return new class extends Migration
             $table -> string('formation');
             $table -> string('sous_groupe');
 
-            $table -> unsignedBigInteger('id_vehicule') -> nullable();
+            $table -> integer('id_vehicule') -> unsigned() -> nullable();
             $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
 
             $table -> timestamps();

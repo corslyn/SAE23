@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             LK2_cours_seeder::class,
             GB1_cours_seeder::class,
             GB2_cours_seeder::class,
+            Utilisateur_seeder::class,
         ]);
     }
 }

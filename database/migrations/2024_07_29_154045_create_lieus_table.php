@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lieus', function (Blueprint $table) {
-            $table -> id();
+            $table -> increments('id');
             $table -> string("adresse");
             $table -> string("code_postal");
             $table -> string("ville");
             $table -> boolean("est_domicile");
             $table -> boolean("est_travail");
 
-            $table -> unsignedBigInteger('id_vehicule') -> nullable();
+            $table -> integer('id_vehicule') -> unsigned() -> nullable();
             $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
 
-            $table -> unsignedBigInteger('id_utilisateur');
-            $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs') -> onDelete('cascade');
+            $table -> integer('id_utilisateur') -> unsigned();
+            $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs');
         });
     }
 
