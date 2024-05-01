@@ -46,14 +46,15 @@
     <div class="right">
             <i class='img2 bx bx-user'></i>
             <select id="choix" name="choix">
-                <option value="default">Auth</option>
                 @if(session() -> has('id'))
-                <option value="edt">Emploi du temps</option>
+                  <option value="default">{{ session("nom") }}</option>
+                  <option value="edt">Emploi du temps</option>
                   <option value="profile">Mon profil</option>
                   <option value="logout">Déconnexion</option>
                 @else
-                  <option value="signup">Inscription</option>
+                  <option value="default">Auth</option>
                   <option value="login">Connexion</option>
+                  <option value="signup">Inscription</option>
                 @endif
             </select>
     </div>

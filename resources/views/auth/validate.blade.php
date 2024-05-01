@@ -12,7 +12,7 @@
             Ou entrez le secret suivant: {{ $secret }}
         </p>
         <div>
-            Une fois cela fait, rendez-vous sur la page de <a class="color: black;" href="{{ route("auth.login") }}">login</a>, et utiliser le code à 6 chiffres dans l'input "Code".
+            Une fois cela fait, rendez-vous sur la page de <a style="color: black;" href="{{ route("auth.login") }}">login</a>, et utiliser le code à 6 chiffres dans l'input "Code".
         </div>
     </section>
 @endsection

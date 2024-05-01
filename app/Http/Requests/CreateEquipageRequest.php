@@ -22,7 +22,7 @@ class CreateEquipageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nom" => "required",
+            "nom_equipage" => "required|unique:equipages",
         ];
     }
 }

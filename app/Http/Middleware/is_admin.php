@@ -15,8 +15,9 @@ class is_admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-         if(session() -> has("is_admin") && session("is_admin") === true)
+        if(session() -> has("is_admin") && session("is_admin") === 1)
             return $next($request);
 
         return abort(403);
+    }
 }

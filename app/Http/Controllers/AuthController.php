@@ -114,7 +114,8 @@ class AuthController extends Controller
             "formation" => $request["formation"],
             "sous_groupe" => $request["sous_groupe"],
             "mot_de_passe" => self::hash($request["mot_de_passe"]),
-            "secret" => null
+            "secret" => null,
+            "is_admin" => false,
         ]);
         
         // Cela signifique que l'utilisateur ne souhaite pas utiliser l'A2F

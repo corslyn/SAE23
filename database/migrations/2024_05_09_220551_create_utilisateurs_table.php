@@ -19,7 +19,7 @@ return new class extends Migration
             $table -> string('mot_de_passe');
             $table -> string('secret') -> nullable();
 
-            $table -> boolean('is_admin') -> nullable();
+            $table -> boolean('is_admin') -> default(false);
 
             
             $table -> string('formation');
