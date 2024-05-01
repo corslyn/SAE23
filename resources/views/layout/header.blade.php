@@ -58,7 +58,7 @@
                 @if(session() -> has('id'))
                   <option value="default">{{ session("nom") }}</option>
                   <option value="edt">Emploi du temps</option>
-                  <option value="profile">Mon profil</option>
+                  {{-- <option value="profile">Mon profil</option> --}}
                   <option value="logout">Déconnexion</option>
                 @else
                   <option value="default">Auth</option>

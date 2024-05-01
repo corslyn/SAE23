@@ -98,4 +98,26 @@ class AppController extends Controller
         ]);
 
     }
+
+
+    public function admin_actions(Request $request) {
+        if(!($request -> has("action"))) {
+            return back();
+        }
+
+        $root_dir = "cd " . __DIR__ . "/../../../";
+        switch($request -> action) {
+            case "-r":
+                $output = shell_exec("$root_dir && ./dbmgr -r x.json" );
+                break;
+            case "-a":
+                $output = shell_exec("$root_dir && ./dbmgr -a x.json" );
+                break;
+            case "-x":
+                $output = shell_exec("$root_dir && ./dbmgr -x x.json" );
+                break;
+        }
+
+        return back() -> with("output", $output);
+    }
 }

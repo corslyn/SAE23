@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeplacementController;
 use App\Http\Controllers\EquipageController;
 use App\Http\Controllers\LieuxController;
+use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\VehiculeController;
 
 
@@ -35,7 +36,8 @@ Route::get("logout", function() {
 }) -> name("auth.logout") -> middleware("auth");
 
 
-Route::view("/admin", "index") -> name("auth.admin") -> middleware("admin");
+Route::view("/admin", "auth.admin") -> name("auth.admin") -> middleware("admin");
+Route::post("/admin", [AppController::class, "admin_actions"]) -> name("auth.admin_actions") -> middleware("admin");
 
 
 /*
@@ -84,7 +86,7 @@ Route::name("deplacement.") -> prefix("deplacement") -> middleware("auth") -> co
 
 
 //XXXX
-Route::name("recommendation.") -> prefix("recommendation") -> middleware("auth") -> controller(RecommendController::class) -> group(function () {
+Route::name("recommendation.") -> prefix("recommendation") -> middleware("auth") -> controller(RecommendationController::class) -> group(function () {
     Route::get("/show", "show") -> name("show");
 //     Route::post("/create", "create") -> name("create");
 
