@@ -23,13 +23,13 @@
 
             <div>
                 @error("email") <div class="error">{{ $message }}</div> @enderror 
-                <label>Email</label>
+                <label>Email <span class="error">*</span></label>
                 <i class='bx bx-envelope'></i>
                 <input type="email" name="email" id="email" value="{{ old("email") }}" placeholder="john@doe.fr" class="@error("email" || "loginerror" ) error-border @enderror">
             </div>
             
             <div>
-                <label>Mot de passe</label>
+                <label>Mot de passe <span class="error">*</span></label>
                 @error("password") <div class="error">{{ $message }}</div> @enderror 
                 <i class='bx bx-lock-alt'></i>
                 <input type="password" name="password" id="password" placeholder="••••••••" class="@error("password" || "loginerror") error-border @enderror">
@@ -37,10 +37,11 @@
 
 
             <div>
-                @error("number") <div class="error">{{ $message }}</div> @enderror 
+                @error("secret") <div class="error">{{ $message }}</div> @enderror 
                 <label>Code</label>
+                <p style="color: grey; font-style: italic; font-size: 12px;">Laissez vide si vous n'utilisez pas l'A2F</p>
                 <i class='bx bx-key'></i>
-                <input type="number" name="secret" id="secret" value="{{ old("secret") }}" placeholder="XXXXXX" class="@error("loginerror" ) error-border @enderror">
+                <input type="number" name="secret" id="secret" value="{{ old("secret") }}" placeholder="XXXXXX" class="@error("secret" || "loginerror") error-border @enderror">
             </div>
             
             <button>Se connecter</button>

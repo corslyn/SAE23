@@ -62,6 +62,10 @@
                 <input type="password" name="mot_de_passe_confirmation" id="mot_de_passe_confirmation" placeholder="••••••••" class="@error("mot_de_passe_confirmation") error-border @enderror">
             </div>
 
+            <div style="margin-top: 20px;">
+                <label style='display: inline;'>Utiliser l'A2F (TOTP) ? </label>
+                <input style="width: 40px;" type="checkbox" name="a2f">
+            </div>
             <button>S'inscrire</button>
         </form>
     

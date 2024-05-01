@@ -187,10 +187,7 @@ a {
     margin-top: 100px;
 
   }
-  
-  .banner2 img {
-    display: none; /* Masque l'image car nous utilisons une image de fond */
-  }
+
     
   /* Animation menu nav */
     ul {
@@ -289,6 +286,7 @@ a {
     border-radius: 10px;
     color: var(--fg-blue-clear);
     margin-top: 20px !important;
+    z-index: 2000;
 }
 
  form h1 {
@@ -503,7 +501,7 @@ th {
 }
 
 .login form {
-  margin-top: 135px;
+  margin-top: 100px !important;
 }
 
 .delete_lieu {
