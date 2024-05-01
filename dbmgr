@@ -20,23 +20,37 @@ function show_help(array $argv) {
     {$GLOBALS["BOLDGREEN"]}Usage: {$GLOBALS["BOLDCYAN"]}$argv[0] [OPTIONS] [FILE] 
 
     {$GLOBALS["BOLDGREEN"]}Options: 
-        {$GLOBALS["BOLDCYAN"]}-r{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--remove  <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (replace)
-        {$GLOBALS["BOLDCYAN"]}-a{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--add     <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (add)
-        {$GLOBALS["BOLDCYAN"]}-x{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--export  <OUTPUT_JSON>       {$GLOBALS["WHITE"]}Database to JSON    
+        {$GLOBALS["BOLDCYAN"]}-r{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--remove   <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (replace) 
+        {$GLOBALS["BOLDCYAN"]}-a{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--add      <INPUT_JSON>        {$GLOBALS["WHITE"]}JSON to database (add)
+        {$GLOBALS["BOLDCYAN"]}-x{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--export   <OUTPUT_JSON>       {$GLOBALS["WHITE"]}Database to JSON
+        {$GLOBALS["BOLDCYAN"]}-ct{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--clear-table   <TABLE>       {$GLOBALS["WHITE"]}Delete all records of one table    
+        {$GLOBALS["BOLDCYAN"]}-dd{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--drop-database               {$GLOBALS["WHITE"]}Drop the database 
+        {$GLOBALS["BOLDCYAN"]}-m{$GLOBALS["WHITE"]},{$GLOBALS["BOLDCYAN"]}--migrate                      {$GLOBALS["WHITE"]}Migrate & Seed the database with Laravel artisan     
+
     EOL;
    
    die;
 }
 
-function error($argv) {
+function error($argv, $table = false) {
     $filename = __FILE__;
     $padding = str_repeat(" ", strlen($argv[0] . $argv[1]));
+
+    if(!$table) {
+        $str1 = "Missing JSON file after {$argv[1]} option";
+        $str2 = "Missing filename here";
+    } else {
+        $str1 = "Missing table name file after {$argv[1]} option";
+        $str2 = "Missing table name here";
+    }
+
+
     echo <<< EOL
-    {$GLOBALS["BOLDRED"]}error[418]{$GLOBALS["WHITE"]}: Missing JSON file after {$argv[1]} option
+    {$GLOBALS["BOLDRED"]}error[418]{$GLOBALS["WHITE"]}: $str1
     {$GLOBALS["BLUE"]} --> {$GLOBALS["WHITE"]}{$filename}
-     {$GLOBALS["BLUE"]} |
+    {$GLOBALS["BLUE"]}  |
     {$GLOBALS["BLUE"]}  |    {$argv[0]} {$argv[1]}
-    {$GLOBALS["BLUE"]}  |    {$padding}{$GLOBALS["BOLDRED"]}  ^ Missing filename here
+    {$GLOBALS["BLUE"]}  |    {$padding}{$GLOBALS["BOLDRED"]}  ^ $str2
 
     {$GLOBALS["BOLDRED"]}error{$GLOBALS["WHITE"]}: could not run the file due to previous error 
 
@@ -56,8 +70,17 @@ $username = "root";
 $password = "root";
 $dbname = "sae23";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn -> connect_error) {
+try {
+    $conn = new mysqli($servername, $username, $password, $dbname);
+} catch(Exception $e) {
+    if(!(isset($argv[1]) && ($argv[1] === "-m" || $argv[1] === "--migrate"))) {
+        echo $GLOBALS["BOLDRED"] . "[!] " . $GLOBALS["WHITE"] . $e;
+        die; 
+    }
+}
+
+
+if (isset($conn) && $conn -> connect_error) {
     die("Connection failed: " . $conn -> connect_error);
 }
 
@@ -110,7 +133,7 @@ switch ($argv[1]) {
             }
         }
 
-        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data import successfully";
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Data import successfully";
         $conn -> close();
         break;
 
@@ -136,7 +159,7 @@ switch ($argv[1]) {
             }
         }
 
-        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data import successfully";
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Data import successfully";
         $conn -> close();
         break;
 
@@ -176,8 +199,43 @@ switch ($argv[1]) {
         file_put_contents($argv[2], $jsonData);
         $conn -> close();
 
-        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . "Data exported successfully";
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Data exported successfully";
 
+        break;
+
+    case "-ct":
+    case "--clear-table":
+        if(!isset($argv[2])) {
+            error($argv, true);
+        }
+
+        $sql = "DELETE FROM {$argv[2]}";
+        $result = $conn -> query($sql);
+
+        $conn -> close();
+
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Table cleared successfully";
+
+        break;
+
+    case "-dd":
+    case "--drop-database":
+        echo $GLOBALS["WHITE"] . "VOUS ALLEZ SUPPRIMER LA BASE DE DONNÉE \n";
+        echo $GLOBALS["BOLDRED"] . "En etes vous sur ? (y/n) ";
+        $res = fgets(STDIN);
+
+        if(trim($res) === "y") {
+            $sql = "DROP DATABASE sae23;";
+            $result = $conn -> query($sql);
+            echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Database dropped";
+        }
+
+        break;
+
+    case "-m":
+    case "--migrate":
+        shell_exec("php artisan migrate --force --seed");
+        echo $GLOBALS["BOLDCYAN"] . "[+]"  . $GLOBALS["BOLDWHITE"] . " Migrated & Seeded database";
         break;
 }
 

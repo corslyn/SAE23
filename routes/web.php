@@ -35,7 +35,7 @@ Route::get("logout", function() {
 }) -> name("auth.logout") -> middleware("auth");
 
 
-Route::view("/admin", "index") -> name("auth.admin") -> middleware("auth");
+Route::view("/admin", "index") -> name("auth.admin") -> middleware("admin");
 
 
 /*
