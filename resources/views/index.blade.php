@@ -5,10 +5,9 @@
         <div class="banner3">
             <form action="/search" method="GET" style="background-color: inherit;">
                 <div class="search-bar">
-                    <input class="search-input" type="text" id="departure" class="search-input" placeholder="Lieu de départ" required>
-                    <input class="search-input" type="text" id="destination" class="search-input" placeholder="Lieu d'arrivée" required>
-                    <input type="date" id="date" class="search-input" placeholder="Date" required>
-                    <input type="number" id="passengers" class="search-input" placeholder="Nombre de personnes" required>
+                    <input name="depart" class="search-input" type="text" id="departure" class="search-input" placeholder="Lieu de départ" required>
+                    <input name="arrive" class="search-input" type="text" id="destination" class="search-input" placeholder="Lieu d'arrivée" required>
+                    <input name="date" type="date" id="date" class="search-input" placeholder="Date" required>
                     <button type="submit" class="search-button" style="margin-top: 0px; width: 60px;"><i class='bx bx-search-alt-2'></i></button>
                 </div>
             </form>

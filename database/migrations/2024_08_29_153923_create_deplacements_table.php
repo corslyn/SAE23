@@ -22,6 +22,8 @@ return new class extends Migration
             $table -> integer('id_lieu_arrive') -> unsigned();
             $table -> foreign('id_lieu_arrive') -> references('id') -> on('lieus');
 
+            $table -> integer('id_equipage') -> unsigned();
+            $table -> foreign('id_equipage') -> references('id') -> on('equipages');
         });
     }
 

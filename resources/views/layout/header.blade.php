@@ -32,13 +32,22 @@
                 <a href="{{ route("deplacement.show") }}">DEPLACEMENTS</a>
               </div>
             </li>
-              
+            
             <li>
-                <div class="content">
-                  <a href="{{ route("auth.admin") }}">ADMIN</a>
-                  <a href="{{ route("auth.admin") }}">ADMIN</a>
-                </div>
+              <div class="content">
+                <a href="{{ route("recommendation.show") }}">RECOMMENDATION</a>
+                <a href="{{ route("recommendation.show") }}">RECOMMENDATION</a>
+              </div>
             </li>
+              
+            @if(session() -> has("is_admin") && session("is_admin") === 1)
+              <li>
+                  <div class="content">
+                    <a href="{{ route("auth.admin") }}">ADMIN</a>
+                    <a href="{{ route("auth.admin") }}">ADMIN</a>
+                  </div>
+              </li>
+            @endif
 
         </ul>
     </div>

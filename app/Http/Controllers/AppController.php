@@ -25,4 +25,8 @@ class AppController extends Controller
             "emploidutemps" => $emploidutemps,
         ]);
     }
+
+    public function search(Request $request) {
+        $request -> 
+    }
 }

@@ -58,7 +58,7 @@
                     @endif
 
                     @if($already_have_travail || $already_have_domicile)
-                        <p style="color: gray; font-style: italic;">Si ce n'est ni votre lieu de domicile, ni votre lieu de travail, alors ce lieu est un lieu de destination que vous prendrez en charge avec votre voiture.</p>
+                        <p style="color: gray; font-style: italic;">Si ce n'est ni votre lieu de domicile, ni votre lieu de travail, alors ce lieu est un lieu de destination ou de départ que vous prendrez en charge avec votre véhicule.</p>
                     @endif
                     <button type="submit">Envoyer <i class='bx bx-send' ></i></button>
                 </form>
