@@ -1,0 +1,135 @@
+#!/bin/php
+
+<?php
+
+if(!isset($argv[1])) die("Usage: {$argv[0]} -h\n");
+
+switch ($argv[1]) {
+    case "-h":
+        echo "Usage: {$argv[0]} [COMMAND]\n";
+        echo "-r <input_json>   JSON to database (replace)\n";
+        echo "-m <input_json>   JSON to database (add)\n";
+        echo "-o <output_json>  Database to JSON\n";
+        break;
+    case "-r":
+        $json_file = $argv[2];
+        $jsonData = file_get_contents($json_file);
+        $array = json_decode($jsonData, true);
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "sae23";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $tables = [
+            "deplacements",
+            "emploidutemps",
+            "equipages",
+            "lieus",
+            "personal_access_tokens",
+            "rejoints",
+            "utilisateurs",
+            "vehicules",
+        ];
+
+        for ($i = 0; $i < sizeof($tables); $i++) {
+            $sql = "DELETE FROM $tables[$i]";
+            if ($conn->query($sql) !== true) {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
+
+        foreach ($array as $tableName => $tableRows) {
+            foreach ($tableRows as $row) {
+                $columns = implode(", ", array_keys($row));
+                $values = "'" . implode("', '", array_values($row)) . "'";
+                $values = str_replace("''", "null", $values);
+                $sql = "INSERT INTO $tableName ($columns) VALUES ($values)";
+
+                if ($conn->query($sql) !== true) {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
+        }
+
+        echo "Data imported successfully";
+        $conn->close();
+        break;
+
+    case "-m":
+        $json_file = $argv[2];
+        $jsonData = file_get_contents($json_file);
+        $array = json_decode($jsonData, true);
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "sae23";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        foreach ($array as $tableName => $tableRows) {
+            foreach ($tableRows as $row) {
+                $columns = implode(", ", array_keys($row));
+                $values = "'" . implode("', '", array_values($row)) . "'";
+                $sql = "INSERT INTO $tableName ($columns) VALUES ($values)";
+
+                if ($conn->query($sql) !== true) {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
+        }
+
+        echo "Data imported successfully";
+        $conn->close();
+        break;
+    case "-o":
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "sae23";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $tables = [
+            "deplacements",
+            "emploidutemps",
+            "equipages",
+            "lieus",
+            "personal_access_tokens",
+            "rejoints",
+            "utilisateurs",
+            "vehicules",
+        ];
+
+        $data = [];
+        foreach ($tables as $table) {
+            $sql = "SELECT * FROM $table";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[$table][] = $row;
+                }
+            }
+        }
+
+        $jsonData = json_encode($data, JSON_PRETTY_PRINT);
+
+        file_put_contents($argv[2], $jsonData);
+        $conn->close();
+        break;
+}
+?>
+
