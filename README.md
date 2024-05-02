@@ -10,22 +10,25 @@ Réalisé avec [![Laravel][Laravel.com]][Laravel-url]
     <a href="#👥-Présentation-générale">👥 Présentation générale</a>
 </ul>
 <ul>
-    <a href="#📝-Guide-utilisateur">📝 Guide de l'utilisateur</a>
+    <a href="#📝-Guide-de-l’utilisateur">📝 Guide de l'utilisateur</a>
 </ul>
 <ul>
-    <a href="#🛠️-Guide-développeur">🛠️ Guide du développeur</a>
+    <a href="#🛠%EF%B8%8F-Guide-du-développeur">🛠️ Guide du développeur</a>
     <ul>
         <li>
-            <a href="#Installation">Installation</a>
+            <a href="#⚙%EF%B8%8F-Installation">⚙️ Installation</a>
         </li>
         <li>
-            <a href="#Script-dbmgr">Script dbmgr</a>
+            <a href="#⌨%EF%B8%8F-Script-dbmgr">⌨️ Script dbmgr</a>
         </li>
         <li>
-            <a href="#Panel-administrateur">Panel administrateur</a>
+            <a href="#👨‍💻-Panel-administrateur">👨‍💻 Panel administrateur</a>
         </li>
         <li>
-            <a href="#Compréhension-générale-de-Laravel">Compréhension générale de Laravel</a>
+            <a href="#🛢%EF%B8%8F-PHPMyAdmin">🛢️ PHPMyAdmin</a>
+        </li>
+        <li>
+            <a href="#🌐-Compréhension-générale-de-Laravel">🌐 Compréhension générale de Laravel</a>
         </li>
         <ul>
             <li>
@@ -55,9 +58,6 @@ Réalisé avec [![Laravel][Laravel.com]][Laravel-url]
                 </li>
              </ul>
         </ul>
-        <li>
-            <a href="#Installation">PHPMyAdmin</a>
-        </li>
     </ul>
 </ul>
 
@@ -65,53 +65,79 @@ Réalisé avec [![Laravel][Laravel.com]][Laravel-url]
 Notre groupe de projet a été sollicité par le FCSM pour développer un outil informatique répondant aux besoins des étudiants de votre formation universitaire, ainsi que le service de développement du fan club du FCSM. Il s'agissait globalement d'organiser la mise en contact des étudiants qui étudient dans la même ville, qui habitent dans la même ville, et qui se rendent aux mêmes endroits pour leurs études, loisirs ou pour les courses. La cible loisir se restreindra à l'accès au FCSM. Peut-être que les étudiants se déplacent aux mêmes moments. C'est ce que l'application va déterminer et proposer des déplacements en commun par le biais du covoiturage.
 
 Pour réaliser ce projet, nous avons choisi de répartir les tâches parmi les 4 personnes composant notre groupe:
-- **IDIRI** Anas : Développement et implémentation du backend, MCD, MPD, Test du site
-- **MANZINALI** Enzo : Déploiement, Administration système, Développement backend, scripting (dbmgr)
+- **IDIRI** Anas : Déploiement (Docker), Développement et implémentation du backend, MCD, MPD, Test du site
+- **MANZINALI** Enzo : Déploiement (Docker), Administration système, Développement backend, scripting (dbmgr)
 - **MARC** Romain : MCD, MPD, Documentation, Base de donnée, Développement frontend, Test du site
 - **CONIGLIO** Alexis : Développement frontend, Recueil de données pour test
 
-Le backend sera realisé à l'aide de PHP, plus particulièrement du framework Laravel, la base de donnée que nous avons choisie est MariaDB (ou MySQL). Quant au frontend il sera réalisé à l'aide de CSS natif.
-Pour faire une parenthèse sur le Framework Laravel, celui-ci utilise l'approche MVC (Modèle -> couche d'abstraction pour l'accès aux relations, Vue -> partie HTML/CSS/JS, Controller -> partie logique avec le code qui utilise les Modèles et qui affiche les vues)
-Celui-ci vient avec d'autres fonctionnalités, tels que les Middlewares, la validation des requêtes, les migrations (on écrit la création des tables en PHP et en migrant celui-ci les créé), les seeders (permet de remplir la base de donnée avec des informations de tests), et enfin le routing, qui permet de mapper les URL au controller.
+Le backend sera realisé à l'aide de PHP, plus particulièrement à l'aide du framework Laravel. La base de donnée que nous avons choisie est MariaDB (ou MySQL). Quant au frontend il sera réalisé à l'aide de HTML et de CSS natif.
+Pour faire une parenthèse sur le Framework Laravel, celui-ci utilise l'approche MVC (Modèle -> couche d'abstraction pour l'accès aux relations, Vue -> partie HTML/CSS/JS, Controller -> code qui exécute la logique avec les Modèles et qui affiche les vues)
+Celui-ci vient avec d'autres fonctionnalités, tels que les Middlewares, la validation des requêtes, les migrations, les seeders et j'en passe. 
 
+La partie backend et des explications plus avancée de sa réalisation seront abordées dans la partie <a href="#🛠️-Guide-développeur">guide développeur</a>. 
 
-
-La partie backend et des explications plus avancée de sa réalisation seront abordées dans la partie <a href="#🛠️-Guide-développeur">guide développeur</a>. Dans la partie suivante nous aborderons la partie guide d'utilisateur qui vous expliquera comment utiliser le site web sans forcément comprendre comment fonctionne la partie logique.
 
 ## 📝 Guide de l'utilisateur
 
 ### Utilisation simple en 10 étapes
-Cette application s'adresse aux étudiants de l'université de Nord Franche-Comté ayant pour objectifs le déplacement entre leur domicile, l'IUT, le stade Bonal et d'autres lieux d'intérêt.
-1. Un email (personnel ou universitaire) est requis pour la création d'un compte.
-2. Lors de l'inscription, il est nécessaire de choisir votre sous groupe (groupe de TP) pour l'importation de l'emploi du temps.
-3. L'utilisateur peut ajouter un véhicule à son profil s'il veut effectuer du covoiturage. L'immatriculation du véhicule doit être introduite pour les conducteurs.
-4. L'utilisateur devra introduire dans la section ***Lieux*** une adresse de domicile, de travail et/ou de passage.
-5. Lorsque l'utilisateur ne spécifie pas la nature de l'adresse (domicile OU travail), elle est automatiquement indiquée comme adresse de passage.
-6. Une adresse de passage est un lieu pris en charge par le chef de l'équipage, s'assurant de passer à l'adresse fournie.
-7. Le chef d'équipage s'assure de communiquer avec les autres utilisateurs de l'équipage pour toutes informations supplémentaires sur le déplacement prévu.
-8. Pour préparer un déplacement, rejoindre la séction ***Déplacement***.
-9. Un propriétaire de véhicule sera automatiquement nommé chef d'équipage en créant un équipage. (Ce rôle est donc réservé aux propriétaires d'un véhicule)
-10. Pour inviter des personnes à rejoindre votre équipage, un lien sera disponible dans le bas de la section ***Equipage***. Pour trouver un équipage il suffit de regarder ses recommendations de déplacements dans la section ***Recommendations*** OU de chercher pour un déplacement dans la section ***Accueil***.
+Cette application s'adresse aux étudiants de l'université de Nord Franche-Comté ayant pour objectifs le déplacement entre leur domicile, l'IUT, le stade Bonal et d'autres lieux d'intérêt, tel que leur lieu de travail.
+
+**1.** ✉️ 
+Un email (personnel ou universitaire) est requis pour la création d'un compte. Vous pouvez également choisir d'utiliser, ou non, **l'A2F** (Authentification à deux facteurs avec TOTP).
+
+**2.** 🏫
+Lors de l'inscription, il est nécessaire de choisir votre sous groupe (groupe de TP) pour l'importation de l'emploi du temps.
+
+**3.** 🚘
+L'utilisateur peut ajouter un véhicule à son profil au niveau de la page ***Véhicule*** s'il veut effectuer du covoiturage. L'immatriculation du véhicule ainsi que le nombre de place doivent être introduits. Si vous ne souhaitez plus prendre en charge le covoiturage, un formulaire est disponible sur la même page si vous souhaitez supprimer votre véhicule.
+
+**4.** 🏘️
+L'utilisateur devra introduire dans la section ***Lieux*** une adresse de domicile et de travail pour bénéficier des recommendations (page ***Recommendation***). 
+Il peut également ajouter des lieux "pris en charge" (uniquement s'il possède un équipage) qu'il pourra par la suite utiliser en lieu de départ ou d'arrivé lors de la réalisation de déplacements (page ***Déplacement***) avec son équipage.
+
+**5.** 👥
+La page équipage permet de rejoindre des équipages ou d'en créer. Vous pouvez créer un et un seul équipage dont vous serez nommé chef au niveau de la page ***Équipage*** si vous possédez un véhicule. 
+Lorsque vous créez un équipage, vous pouvez créer des déplacements que vous prendrez en charge avec votre véhicule. Ces déplacements auront pour Lieu de départ et Lieu d'arrivé un Lieu préalablement introduit dans la page ***Lieux*** que vous choisirez. Vous indiquerez également la date et la durée de ce trajet.
+
+**6.** 👨‍👩‍👧
+De manière générale, sur la page ***Équipages***, vous pouvez rejoindre une équipe par son nom, ou quitter une équipe préalablement rejointe.
+Le chef de l'équipage aura en plus une section lui offrant la possibilité d'inviter des membres, ou d'exclure des membres de son équipe.
+
+**7.** 🚙
+Pour préparer ou visualiser tous les déplacements auxquels vous avez souscrit, rejoindre la séction ***Déplacement***. Si vous possédez un équipage, vous aurez la possibilité d'organiser des déplacements avec celui-ci. En dessous, vous aurez une visualisation de tous les déplacements auxquels vous avez souscrit. 
+Pour faire simple, lorsque vous rejoignez un équipage, vous pourrez visualiser les déplacements prévus par celle-ci sur cette page. Par défaut, vous participez à tous les déplacements réalisés par les équipages auxquels vous appartenez.
+De ce fait, vous verrez sur cette page la totalité des déplacements prévus par la totalité des équipages que vous avez rejoint.
+
+**8.** 🔎
+Pour trouver un équipage prenant en charge un certain déplacement, vous pouvez visualiser vos recommendations de déplacements dans la section ***Recommendations***. Celle-ci vous propose automatiquement des déplacements vers votre Lieu de travail ou vers votre Lieu de domiciliation, et vous offre la possibilité de rejoindre les équipages les organisant.
+Vous pouvez également chercher un déplacement précis dans la section ***Accueil*** à l'aide de la barre de recherche. Celle-ci vous permet de trier par Lieu de départ, Lieu d'arrivé et date (il n'est pas obligatoire de compléter tous les champs), et vous offrira également la possibilité de rejoindre l'équipe organisant ce déplacement.
+
+**9.** 👤
+Une page profile est disponible et permet de changer les informations utilisateurs tels que le nom, l'email, le mot de passe, la formation ou le sous groupe.
+
+**10.** ⚙️
+Il existe une partie administrateurs disponible uniquement pour les utilisateurs possédant le role Admin (admin@localhost:admin, ou changer le champs is_admin de la table en le passant à true). Celle-ci permet d'intéragir avec un script nommé dbmgr. Si vous souhaitez en savoir plus, rendez-vous dans la <a href="#Panel-administrateur">section Panel Administrateur</a>.
+
 
 
 ## 🛠️ Guide du développeur
 
-### Installation
+### ⚙️ Installation
 Si vous souhaitez installer l'application sur votre serveur ou votre ordinateur personnel, suivez les étapes ci-dessous.
 
-Étant basé sur Laravel, l'installation du projet nécessitera **composer** et **php**. Il nécessitera également que vous installiez **mysql** ou **mariadb** pour la partie base de donnée. Vous avez tout le loisir d'installer cette Tech-Stack sur votre Serveur/PC, cependant nous avons jugé qu'il était plus pratique de mettre à votre disposition un Dockerfile ainsi qu'un docker-compose afin d'automatiser le déploiement.
+Étant basé sur Laravel, l'installation du projet nécessitera **composer** et **php**. Elle nécessitera également que vous installiez **mysql** ou **mariadb** pour la partie base de donnée. Vous avez tout le loisir d'installer cette Tech-Stack sur votre Serveur/PC, cependant nous avons jugé qu'il était plus pratique de mettre à votre disposition un Dockerfile ainsi qu'un docker-compose afin d'une part de nous permettre d'automatiser le déploiement, et d'autre part de vous faciliter son installation.
 
 Vous aurez donc besoin d'installer <a href="https://docs.docker.com/engine/install/">le docker engine</a> si vous êtes sur Linux, ce qui est fortement recommandé. Si vous etes sur MAC OS ou Windows, installez Docker Desktop en suivant la documentation officielle de Docker.
 
-Récuperez le code depuis le repo git qui sera fourni en annexe, ouvrez un terminal, rendez-vous dans le bon dossier et lancez docker en tant que root (ou équivalent selon l'OS que vous utilisez):
+ROuvrez un terminal, rendez-vous dans le bon dossier et lancez docker en tant que root (ou équivalent selon l'OS que vous utilisez):
 ```
-git clone <LE LIEN FOURNI EN ANNEXE>
-chmod -R 777 SAE23  
+git clone https://github.com/NullBrunk/SAE23/
+cd SAE23  
 docker-compose up
 ```
 
 
-### Script dbmgr
+### ⌨️ Script dbmgr
 
 Afin de faciliter la phase de développement, nous avons réalisé un script: dbmgr. À noter que celui-ci n'est pas qu'un script; c'est une dépendance de l'application utilisée au niveau de la page d'administration. 
 Pour l'utiliser vous aurez besoin de lui donner les droits d'exécution. Pour ce faire, rendez vous dans le dossier du projet, et tapez:
@@ -142,7 +168,7 @@ Options:
 Ainsi, ce script permet d'exporter la base de donnée sous forme d'un fichier JSON, d'importer un fichier JSON (remplacer complètement la base de donnée OU ajouter le contenu du JSON dans la base de donnée), de supprimer une table, de supprimer la base de donnée, ou de migrer + seeder la base de donnée (Créer la base de donnée + les tables + ajouter un jeu de test).
 
 
-### Panel administrateur
+### 👨‍💻 Panel administrateur
 Suivez les étapes vue ci-dessus pour utiliser dbmgr, et tapez:
 ```bash
 
@@ -153,11 +179,19 @@ Ceci va utiliser les seeders de Laravel pour préremplir votre base de donnée. 
 
 Si vous utilisez le serveur web installé par nos soins (dont le lien sera fourni en annexe), sachez que la DB à déjà été seedée. Vous pourrez donc vous connecter à la partie administration, puis vous rendre dans le panel admin.
 
+### 🛢️ PHPMyAdmin
 
-### Compréhension générale de Laravel
+Si vous voulez visualiser ou modifier la base de donnée de manière simple et efficace, vous pouvez utiliser phpmyadmin. Pour ce faire, rendez-vous sur /phpmyadmin. Par exemple si le site est disponible sur http://127.0.0.1/ rendez vous sur http://127.0.0.1/phpmyadmin/
 
-Laravel est le Framework php le plus populaire, cependant il n'est pas toujours aisé de comprendre à quoi servent les répértoires. Il n'est également pas évident de savoir qu'est ce qui était la avec le framework et qu'est ce qui a été ajouté par le développeur du projet.
-Je vous propose une overview rapide des différents fichiers et répértoire afin que vous ayez une meilleure compréhension.
+- Nom d'utilisateur: root
+- Mot de passe: root
+- Nom de la base de donnée : sae23
+
+
+### 🌐 Compréhension générale de Laravel
+
+Laravel est le Framework php le plus populaire, cependant il n'est pas toujours aisé de comprendre à quoi servent les répértoires. Il n'est également pas évident de savoir ce qui était la avec le framework et ce qui a été ajouté par le développeur du projet.
+Je vous propose une overview rapide des différents fichiers et répértoire afin que vous ayez une meilleure compréhension de comment fonctionne ce framework.
 
 **Fichiers**
 
@@ -254,11 +288,3 @@ Ce qui est intéressant, c'est qu'on peut effectuer de la validation sur ces req
 Contient les controlleurs, qui sont des classes PHP, qui contiennent des méthodes. Les méthodes contiennent la logique PHP. En général, on a une route qui map une URL a une méthode d'un Controlleur. Le controlleur fait des choses avec les Modèles (ajoute, supprime, édite des choses dans la table) et retourne une Vue à laquelle il passe des informations.
 
 
-### PHPMyAdmin
-
-Si vous voulez visualiser ou modifier la base de donnée de manière simple et efficace, vous pouvez utiliser phpmyadmin. Pour ce faire, rendez vous dans le Panel Admin et cliquez sur le bouton "Accéder à PHPMyAdmin", ou juste rendez vous sur l'url /phpmyadmin. 
-Les credentials de la base de données sont:
-
-- Nom d'utilisateur: root
-- Mot de passe: root
-- Nom de la base de donnée : sae23
