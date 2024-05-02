@@ -288,4 +288,11 @@ Ce qui est intéressant, c'est qu'on peut effectuer de la validation sur ces req
 Contient les controlleurs, qui sont des classes PHP, qui contiennent des méthodes. Les méthodes contiennent la logique PHP. En général, on a une route qui map une URL a une méthode d'un Controlleur. Le controlleur fait des choses avec les Modèles (ajoute, supprime, édite des choses dans la table) et retourne une Vue à laquelle il passe des informations.
 
 
+### 🤝 Remerciements
 
+Merci aux quatres contributeurs du projet
+
+- <a href="https://github.com/rmarc29">MARC Romain</a>
+- <a href="https://github.com/corslyn">MANZINALI Enzo</a>
+- <a href="https://github.com/alexis-cgl">CONIGLIO Alexis</a>
+- <a href"https://github.com/NullBrunk">IDIRI Anas</a>
