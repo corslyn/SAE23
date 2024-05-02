@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lieu;
-use App\Models\Deplacement;
 use Illuminate\Http\Request;
 
 class RecommendationController extends Controller
@@ -36,16 +35,20 @@ class RecommendationController extends Controller
             $linked["code_postal_tr"] = $travail_lieu -> code_postal;
         }
 
-        $lieu = Lieu::whereIn("adresse", [$linked["adresse_d"], $linked["adresse_tr"]]) 
+        $lieu = Lieu::select("adresse", "code_postal", "ville", "nom_equipage", "date", "duree") -> whereIn("adresse", [$linked["adresse_d"], $linked["adresse_tr"]]) 
             -> whereIn("ville", [$linked["ville_d"], $linked["ville_tr"]])
             -> whereIn("code_postal", [$linked["code_postal_d"], $linked["code_postal_tr"] ])
             -> where("id_utilisateur", "!=", session("id"))
+            -> join('deplacements', function($join) {
+                $join -> on('lieus.id', '=', 'deplacements.id_lieu_depart')
+                      -> orOn('lieus.id', '=', 'deplacements.id_lieu_arrive');
+            })  
+            -> join('equipages', 'deplacements.id_equipage', '=', 'equipages.id')
             -> get();
         
-        dd($lieu);
-
-        // return view("app.recommendation", [
-        //     "related_places" => $related_places,
-        // ]);
+       
+        return view("app.recommendation", [
+            "related_places" => $lieu,
+        ]);
     }
 }
