@@ -295,4 +295,4 @@ Merci aux quatres contributeurs du projet
 - <a href="https://github.com/rmarc29">MARC Romain</a>
 - <a href="https://github.com/corslyn">MANZINALI Enzo</a>
 - <a href="https://github.com/alexis-cgl">CONIGLIO Alexis</a>
-- <a href"https://github.com/NullBrunk">IDIRI Anas</a>
+- <a href="https://github.com/NullBrunk">IDIRI Anas</a>
