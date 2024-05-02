@@ -103,11 +103,7 @@
                     </td>
 
                     <td>
-                        @if(!($lieu -> est_travail || $lieu -> est_domicile))
-                            <p class="success">Oui</p>
-                        @else
-                            <p class="error">Non</p>
-                        @endif
+                        <p class="success">Oui</p>
                     </td>
                     <td>
                         <form class="delete_lieu" action="{{ route("lieux.delete", $lieu -> id) }}" method="POST">
