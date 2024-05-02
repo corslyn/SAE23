@@ -7,28 +7,28 @@ Réalisé avec [![Laravel][Laravel.com]][Laravel-url]
 
 **Menu:**
 <ul>
-    <a href="#👥-Présentation-générale">👥 Présentation générale</a>
+    <a href="#-présentation-générale">👥 Présentation générale</a>
 </ul>
 <ul>
-    <a href="#📝-Guide-de-l’utilisateur">📝 Guide de l'utilisateur</a>
+    <a href="#-guide-de-lutilisateur">📝 Guide de l'utilisateur</a>
 </ul>
 <ul>
-    <a href="#🛠%EF%B8%8F-Guide-du-développeur">🛠️ Guide du développeur</a>
+    <a href="#%EF%B8%8F-guide-du-développeur">🛠️ Guide du développeur</a>
     <ul>
         <li>
-            <a href="#⚙%EF%B8%8F-Installation">⚙️ Installation</a>
+            <a href="#%EF%B8%8F-installation">⚙️ Installation</a>
         </li>
         <li>
-            <a href="#⌨%EF%B8%8F-Script-dbmgr">⌨️ Script dbmgr</a>
+            <a href="#%EF%B8%8F-script-dbmgr">⌨️ Script dbmgr</a>
         </li>
         <li>
-            <a href="#👨‍💻-Panel-administrateur">👨‍💻 Panel administrateur</a>
+            <a href="#-panel-administrateur">👨‍💻 Panel administrateur</a>
         </li>
         <li>
-            <a href="#🛢%EF%B8%8F-PHPMyAdmin">🛢️ PHPMyAdmin</a>
+            <a href="#%EF%B8%8F-phpmyadmin">🛢️ PHPMyAdmin</a>
         </li>
         <li>
-            <a href="#🌐-Compréhension-générale-de-Laravel">🌐 Compréhension générale de Laravel</a>
+            <a href="#-compréhension-générale-de-laravel">🌐 Compréhension générale de Laravel</a>
         </li>
         <ul>
             <li>
@@ -286,5 +286,6 @@ Ce qui est intéressant, c'est qu'on peut effectuer de la validation sur ces req
 ###### App/Http/Controllers
 
 Contient les controlleurs, qui sont des classes PHP, qui contiennent des méthodes. Les méthodes contiennent la logique PHP. En général, on a une route qui map une URL a une méthode d'un Controlleur. Le controlleur fait des choses avec les Modèles (ajoute, supprime, édite des choses dans la table) et retourne une Vue à laquelle il passe des informations.
+
 
 
