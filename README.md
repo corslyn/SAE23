@@ -131,7 +131,7 @@ Vous aurez donc besoin d'installer <a href="https://docs.docker.com/engine/insta
 
 ROuvrez un terminal, rendez-vous dans le bon dossier et lancez docker en tant que root (ou équivalent selon l'OS que vous utilisez):
 ```
-git clone https://github.com/NullBrunk/SAE23/
+git clone https://github.com/corslyn/SAE23/
 cd SAE23  
 docker-compose up
 ```
