@@ -8,7 +8,7 @@ COPY . .
 
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql mysqli
 RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS}
 
 RUN apk add $PHPSIZE_DEPS

@@ -65,7 +65,7 @@ if(!isset($argv[1])) {
     show_help($argv);
 }
 
-$servername = "localhost";
+$servername = "mysql";
 $username = "root";
 $password = "root";
 $dbname = "sae23";
