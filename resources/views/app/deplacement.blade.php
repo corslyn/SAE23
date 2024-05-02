@@ -19,7 +19,7 @@
                             D'où souhaitez-vous organiser le déplacement ?
                         </label>
                         <select name="deplacement_depart">
-                            @foreach($depart  as $lieu)
+                            @foreach($lieux  as $lieu)
                                 <option value="{{ $lieu -> id }}">
                                     {{ 
                                         $lieu -> ville . ", " .  
@@ -35,7 +35,7 @@
                             Vers où souhaitez-vous organiser le déplacement ?
                         </label>
                         <select name="deplacement">
-                            @foreach($arrive as $lieu)
+                            @foreach($lieux as $lieu)
                                 <option value="{{ $lieu -> id }}">
                                     {{ 
                                         $lieu -> ville . ", " .  

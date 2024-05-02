@@ -16,13 +16,7 @@ class DeplacementController extends Controller
               -> where("est_chef", true) -> first();
 
         if($user_own_team) {
-            $lieux = Lieu::where("id_utilisateur", session("id"));
-
-            $lieux_depart = $lieux -> get();
-            $lieux_arrive = $lieux
-            -> where("est_travail", false)
-            -> where("est_domicile", false)
-            -> get();
+            $lieux = Lieu::where("id_utilisateur", session("id")) -> get();
         }
 
         // Recuperer tous les déplacements prévus pour cet utilisateur
@@ -47,8 +41,7 @@ class DeplacementController extends Controller
         return view("app.deplacement", [
             "tous_les_deplacements_prévus" => $tous_les_deplacements_prévus,
             "user_own_team" => $user_own_team,
-            "depart" => $lieux_depart ?? null,
-            "arrive" => $lieux_arrive ?? null,
+            "lieux" => $lieux ?? null,
         ]);
     }
 

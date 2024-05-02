@@ -22,7 +22,7 @@
         @include("layout.header")
         
         <div class="banner2">
-            <h1>FCSM Drive</h1>
+            <h1>FCSMobilité</h1>
 
 
         @yield("body")

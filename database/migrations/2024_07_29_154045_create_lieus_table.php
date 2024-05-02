@@ -19,9 +19,6 @@ return new class extends Migration
             $table -> boolean("est_domicile");
             $table -> boolean("est_travail");
 
-            $table -> integer('id_vehicule') -> unsigned() -> nullable();
-            $table -> foreign('id_vehicule') -> references('id') -> on('vehicules');
-
             $table -> integer('id_utilisateur') -> unsigned();
             $table -> foreign('id_utilisateur') -> references('id') -> on('utilisateurs');
         });
