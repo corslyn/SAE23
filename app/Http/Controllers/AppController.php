@@ -10,13 +10,14 @@ use App\Models\Utilisateurs;
 use Illuminate\Http\Request;
 use App\Models\Emploidutemps;
 use App\Http\Requests\AjoutVehiculeRequest;
+use App\Http\Requests\UpdateProfileRequest;
 
 class AppController extends Controller
 {
     public function edt() {
         // On test si la table à déja été remplie
         $emploidutemps = Emploidutemps::where("sous_groupe", session("sous_groupe")) -> first();
-        
+
         // On ne trouve aucun emploi du temps ? Alors les tables n'ont pas encore été remplie
         // on va utiliser le fichier JSON plus un parser pour les remplir
         if($emploidutemps === null) {
@@ -37,12 +38,12 @@ class AppController extends Controller
         // On recupère tous les voyages disponibles
         $tous_les_voyages = Equipages::select(
             "nom_equipage", "date", "duree",
-            "lieux_départ.code_postal as code_postal_départ", 
-            "lieux_départ.ville as ville_départ", 
+            "lieux_départ.code_postal as code_postal_départ",
+            "lieux_départ.ville as ville_départ",
             "lieux_départ.adresse as adresse_départ",
-            
-            "lieux_arrivé.code_postal as code_postal_arrivé", 
-            "lieux_arrivé.ville as ville_arrivé", 
+
+            "lieux_arrivé.code_postal as code_postal_arrivé",
+            "lieux_arrivé.ville as ville_arrivé",
             "lieux_arrivé.adresse as adresse_arrivé",
         )
         -> join('deplacements', 'deplacements.id_equipage', '=', 'equipages.id')
@@ -54,8 +55,8 @@ class AppController extends Controller
             // les ET sont prioritaire sur les OU, il faut donc passer par un trick
             // étrange pour réussir a faire une requete du type (x ou x ou x) ET (y ou y ou y)
             $tous_les_voyages -> where(function ($query) use ($depart) {
-                $query -> where("lieux_départ.code_postal", "like", $depart) -> 
-                    orWhere("lieux_départ.ville", "like", $depart) -> 
+                $query -> where("lieux_départ.code_postal", "like", $depart) ->
+                    orWhere("lieux_départ.ville", "like", $depart) ->
                     orWhere("lieux_départ.adresse", "like", $depart);
             });
         }
@@ -64,22 +65,22 @@ class AppController extends Controller
             // les ET sont prioritaire sur les OU, il faut donc passer par un trick
             // étrange pour réussir a faire une requete du type (x ou x ou x) ET (y ou y ou y)
             $tous_les_voyages -> where(function ($query) use ($arrive) {
-                $query -> where("lieux_arrivé.code_postal", "like", $arrive) -> 
-                    orWhere("lieux_arrivé.ville", "like", $arrive) -> 
+                $query -> where("lieux_arrivé.code_postal", "like", $arrive) ->
+                    orWhere("lieux_arrivé.ville", "like", $arrive) ->
                     orWhere("lieux_arrivé.adresse", "like", $arrive);
             });
         }
 
-        
-        
+
+
         if($date !== null) {
-            // On ne veut pas que la date fournie par le user match exactement la date qu'on recupère dans la (a la seconde près). 
-            // On ne peut pas juste faire un -> where("date", $date) car c'est trop precis, ca fausse les résultat 
+            // On ne veut pas que la date fournie par le user match exactement la date qu'on recupère dans la (a la seconde près).
+            // On ne peut pas juste faire un -> where("date", $date) car c'est trop precis, ca fausse les résultat
             // Ici on abuse en laissant une marge "d'erreur" d'1 semaine, mais on peut évidemment changer ceci très facilement.
-            
+
             // On parse la date a l'aide de Carbon
             $date = Carbon::parse($date);
-            
+
             // On save l'heure
             $heure = $date -> format('H:i:s');
 
@@ -99,6 +100,20 @@ class AppController extends Controller
 
     }
 
+    public function show_profile() {
+        return view("app.profile");
+    }
+
+    public function edit_profile(UpdateProfileRequest $request) {
+        Utilisateurs::where("id", session("id")) -> update([
+            "nom" => $request -> nom,
+            "email" => $request -> email,
+            "mot_de_passe" => AuthController::hash($request -> password),
+            "formation" => $request -> formation,
+            "sous_groupe" => $request -> sous_groupe,
+        ]);
+        return back();
+    }
 
     public function admin_actions(Request $request) {
         if(!($request -> has("action"))) {

@@ -16,13 +16,13 @@ Route::view("/", "index") -> name("index");
 |--------------------------------------------------------------------------
 | Authentication / Logout
 |--------------------------------------------------------------------------
-| 
+|
 */
 
 Route::middleware("guest") -> name("auth.") -> controller(AuthController::class) -> group( function () {
     Route::view("/login", "auth.login") -> name("login");
     Route::post("/login", "login");
-    
+
     Route::view("/signup", "auth.signup") -> name("signup");
     Route::post("/signup", "signup");
 });
@@ -44,7 +44,7 @@ Route::post("/admin", [AppController::class, "admin_actions"]) -> name("auth.adm
 |--------------------------------------------------------------------------
 | App routing
 |--------------------------------------------------------------------------
-| 
+|
 */
 
 Route::name("app.") -> middleware("auth") -> controller(AppController::class) -> group(function () {
@@ -96,3 +96,5 @@ Route::name("recommendation.") -> prefix("recommendation") -> middleware("auth")
 //     Route::delete("/remove/{user_join}", "delete") -> name("delete");
 
 });
+Route::get('/profile', [AppController::class, "show_profile"]) -> name("profile.show") -> middleware("auth");
+Route::post("/profile", [AppController::class, "edit_profile"]) -> name("profile.form") -> middleware("auth");
