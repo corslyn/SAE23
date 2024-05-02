@@ -7,6 +7,12 @@
 
     <div id="center">
         <ul>
+          <li>
+            <div class="content">
+              <a href="{{ route("index") }}">ACCUEIL</a>
+              <a href="{{ route("index") }}">ACCUEIL</a>
+            </div>
+          </li>
             <li>
               <div class="content">
                 <a href="{{ route("vehicule.show") }}">VEHICULE</a>
