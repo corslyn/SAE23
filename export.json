@@ -385,6 +385,66 @@
             "v_fin": "12h30",
             "s_debut": null,
             "s_fin": null
+        },
+        {
+            "sous_groupe": "LK1",
+            "l_debut": "9h30",
+            "l_fin": "16h30",
+            "m_debut": "8h",
+            "m_fin": "12h30",
+            "me_debut": "8h",
+            "me_fin": "18h",
+            "j_debut": "9h30",
+            "j_fin": "15h",
+            "v_debut": "13h30",
+            "v_fin": "18h00",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "LK2",
+            "l_debut": "8h30",
+            "l_fin": "12h30",
+            "m_debut": "8h",
+            "m_fin": "18",
+            "me_debut": "9h30",
+            "me_fin": "16h30",
+            "j_debut": "13h30",
+            "j_fin": "15h",
+            "v_debut": "8h",
+            "v_fin": "18h",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "GB1",
+            "l_debut": "8h30",
+            "l_fin": "18h",
+            "m_debut": "8h",
+            "m_fin": "18h",
+            "me_debut": "8h",
+            "me_fin": "9h30",
+            "j_debut": "11h",
+            "j_fin": "12h30",
+            "v_debut": "8h",
+            "v_fin": "18h",
+            "s_debut": null,
+            "s_fin": null
+        },
+        {
+            "sous_groupe": "GB2",
+            "l_debut": "8h30",
+            "l_fin": "16h30",
+            "m_debut": "8h",
+            "m_fin": "16h30",
+            "me_debut": "8h",
+            "me_fin": "18h",
+            "j_debut": "9h30",
+            "j_fin": "15h",
+            "v_debut": "11h",
+            "v_fin": "12h30",
+            "s_debut": null,
+            "s_fin": null
         }
     ],
     "equipages": [
@@ -1127,6 +1187,24 @@
             "est_domicile": "0",
             "est_travail": "1",
             "id_utilisateur": "2"
+        },
+        {
+            "id": "80",
+            "adresse": "37 georges clemenceau",
+            "code_postal": "25200",
+            "ville": "montbeliard",
+            "est_domicile": "1",
+            "est_travail": "0",
+            "id_utilisateur": "37"
+        },
+        {
+            "id": "81",
+            "adresse": "but rt",
+            "code_postal": "25200",
+            "ville": "montbeliard",
+            "est_domicile": "0",
+            "est_travail": "1",
+            "id_utilisateur": "37"
         }
     ],
     "rejoints": [
@@ -1273,6 +1351,18 @@
             "est_chef": "1",
             "id_equipage": "18",
             "id_utilisateur": "34"
+        },
+        {
+            "id": "30",
+            "est_chef": "0",
+            "id_equipage": "8",
+            "id_utilisateur": "37"
+        },
+        {
+            "id": "31",
+            "est_chef": "0",
+            "id_equipage": "7",
+            "id_utilisateur": "2"
         }
     ],
     "utilisateurs": [
@@ -1293,14 +1383,14 @@
             "id": "2",
             "nom": "A",
             "email": "a@a.a",
-            "mot_de_passe": "e9b35379a4a2155324153569bea58a99de746e9e1603da9721bdd06271bebb2512358b3a65dd5631f5251796f444cc7047d1aacd49d65e2928343c6b8aa79052",
+            "mot_de_passe": "c5a8a1554ecdb5e09f9ec04b3eded0f61051af3db08e7b35feda5037f78e2d7bb36682b2fccc43d8d1d979ce10503b3b75876f7aa0c27f553e8d698dabc4b88c",
             "secret": null,
             "is_admin": "0",
             "formation": "RT1",
-            "sous_groupe": "GB1",
+            "sous_groupe": "LK1",
             "id_vehicule": null,
             "created_at": "2024-04-30 19:07:48",
-            "updated_at": "2024-04-30 22:58:45"
+            "updated_at": "2024-05-02 14:49:50"
         },
         {
             "id": "3",
