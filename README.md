@@ -187,6 +187,9 @@ Si vous voulez visualiser ou modifier la base de donnée de manière simple et e
 - Mot de passe: root
 - Nom de la base de donnée : sae23
 
+Voici le MCD de la base de donnée:
+![golum drawio](https://github.com/corslyn/SAE23/assets/125673909/e6ad5245-43fd-45af-aff4-58561f5c7ae8)
+
 
 ### 🌐 Compréhension générale de Laravel
 
