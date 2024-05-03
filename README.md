@@ -7,28 +7,28 @@ Réalisé avec [![Laravel][Laravel.com]][Laravel-url]
 
 **Menu:**
 <ul>
-    <a href="#-présentation-générale">👥 Présentation générale</a>
+    <a href="#👥-Présentation-générale">👥 Présentation générale</a>
 </ul>
 <ul>
-    <a href="#-guide-de-lutilisateur">📝 Guide de l'utilisateur</a>
+    <a href="#📝-Guide-de-l’utilisateur">📝 Guide de l'utilisateur</a>
 </ul>
 <ul>
-    <a href="#%EF%B8%8F-guide-du-développeur">🛠️ Guide du développeur</a>
+    <a href="#🛠%EF%B8%8F-Guide-du-développeur">🛠️ Guide du développeur</a>
     <ul>
         <li>
-            <a href="#%EF%B8%8F-installation">⚙️ Installation</a>
+            <a href="#⚙%EF%B8%8F-Installation">⚙️ Installation</a>
         </li>
         <li>
-            <a href="#%EF%B8%8F-script-dbmgr">⌨️ Script dbmgr</a>
+            <a href="#⌨%EF%B8%8F-Script-dbmgr">⌨️ Script dbmgr</a>
         </li>
         <li>
-            <a href="#-panel-administrateur">👨‍💻 Panel administrateur</a>
+            <a href="#👨‍💻-Panel-administrateur">👨‍💻 Panel administrateur</a>
         </li>
         <li>
-            <a href="#%EF%B8%8F-phpmyadmin">🛢️ PHPMyAdmin</a>
+            <a href="#🛢%EF%B8%8F-PHPMyAdmin">🛢️ PHPMyAdmin</a>
         </li>
         <li>
-            <a href="#-compréhension-générale-de-laravel">🌐 Compréhension générale de Laravel</a>
+            <a href="#🌐-Compréhension-générale-de-Laravel">🌐 Compréhension générale de Laravel</a>
         </li>
         <ul>
             <li>
@@ -80,37 +80,37 @@ La partie backend et des explications plus avancée de sa réalisation seront ab
 ## 📝 Guide de l'utilisateur
 
 ### Utilisation simple en 10 étapes
-Cette application s'adresse aux étudiants de l'université de Nord Franche-Comté ayant pour objectifs le déplacement entre leur domicile, l'IUT, le stade Bonal et d'autres lieux d'intérêt, tel que leur lieu de travail.
+Cette application s'adresse aux étudiants de l'université de Nord Franche-Comté ayant pour objectif le déplacement entre leur domicile, l'IUT, le stade Bonal et d'autres lieux d'intérêt, tel que leur lieu de travail.
 
 **1.** ✉️ 
-Un email (personnel ou universitaire) est requis pour la création d'un compte. Vous pouvez également choisir d'utiliser, ou non, **l'A2F** (Authentification à deux facteurs avec TOTP).
+Un email (personnel ou universitaire) est requis pour la création d'un compte. 
 
-**2.** 🏫
-Lors de l'inscription, il est nécessaire de choisir votre sous groupe (groupe de TP) pour l'importation de l'emploi du temps.
+**2.** :key: 
+Vous pouvez également choisir d'utiliser, ou non, **l'A2F** (Authentification à deux facteurs avec TOTP).
 
 **3.** 🚘
 L'utilisateur peut ajouter un véhicule à son profil au niveau de la page ***Véhicule*** s'il veut effectuer du covoiturage. L'immatriculation du véhicule ainsi que le nombre de place doivent être introduits. Si vous ne souhaitez plus prendre en charge le covoiturage, un formulaire est disponible sur la même page si vous souhaitez supprimer votre véhicule.
 
 **4.** 🏘️
-L'utilisateur devra introduire dans la section ***Lieux*** une adresse de domicile et de travail pour bénéficier des recommendations (page ***Recommendation***). 
+L'utilisateur devra introduire au niveau de la page ***Lieux*** une adresse de domicile et de travail pour bénéficier des recommendations (page ***Recommendation***). 
 Il peut également ajouter des lieux "pris en charge" (uniquement s'il possède un équipage) qu'il pourra par la suite utiliser en lieu de départ ou d'arrivé lors de la réalisation de déplacements (page ***Déplacement***) avec son équipage.
 
 **5.** 👥
 La page équipage permet de rejoindre des équipages ou d'en créer. Vous pouvez créer un et un seul équipage dont vous serez nommé chef au niveau de la page ***Équipage*** si vous possédez un véhicule. 
-Lorsque vous créez un équipage, vous pouvez créer des déplacements que vous prendrez en charge avec votre véhicule. Ces déplacements auront pour Lieu de départ et Lieu d'arrivé un Lieu préalablement introduit dans la page ***Lieux*** que vous choisirez. Vous indiquerez également la date et la durée de ce trajet.
+Lorsque vous créez un équipage, vous pouvez créer des déplacements que vous prendrez en charge avec votre véhicule. Ces déplacements auront pour Lieu de départ et Lieu d'arrivé un lieu préalablement introduit dans la page ***Lieux*** que vous choisirez. Vous indiquerez également la date et la durée de ce trajet.
 
 **6.** 👨‍👩‍👧
 De manière générale, sur la page ***Équipages***, vous pouvez rejoindre une équipe par son nom, ou quitter une équipe préalablement rejointe.
 Le chef de l'équipage aura en plus une section lui offrant la possibilité d'inviter des membres, ou d'exclure des membres de son équipe.
 
 **7.** 🚙
-Pour préparer ou visualiser tous les déplacements auxquels vous avez souscrit, rejoindre la séction ***Déplacement***. Si vous possédez un équipage, vous aurez la possibilité d'organiser des déplacements avec celui-ci. En dessous, vous aurez une visualisation de tous les déplacements auxquels vous avez souscrit. 
+Pour préparer ou visualiser tous les déplacements auxquels vous avez souscrit, rejoindre la page ***Déplacement***. Si vous possédez un équipage, vous aurez la possibilité d'organiser des déplacements avec celui-ci. En dessous, vous aurez une visualisation de tous les déplacements auxquels vous avez souscrit. 
 Pour faire simple, lorsque vous rejoignez un équipage, vous pourrez visualiser les déplacements prévus par celle-ci sur cette page. Par défaut, vous participez à tous les déplacements réalisés par les équipages auxquels vous appartenez.
 De ce fait, vous verrez sur cette page la totalité des déplacements prévus par la totalité des équipages que vous avez rejoint.
 
 **8.** 🔎
 Pour trouver un équipage prenant en charge un certain déplacement, vous pouvez visualiser vos recommendations de déplacements dans la section ***Recommendations***. Celle-ci vous propose automatiquement des déplacements vers votre Lieu de travail ou vers votre Lieu de domiciliation, et vous offre la possibilité de rejoindre les équipages les organisant.
-Vous pouvez également chercher un déplacement précis dans la section ***Accueil*** à l'aide de la barre de recherche. Celle-ci vous permet de trier par Lieu de départ, Lieu d'arrivé et date (il n'est pas obligatoire de compléter tous les champs), et vous offrira également la possibilité de rejoindre l'équipe organisant ce déplacement.
+Vous pouvez également chercher un déplacement précis dans la page d'***Accueil*** à l'aide de la barre de recherche. Celle-ci vous permet de trier par Lieu de départ, Lieu d'arrivé et date (il n'est pas obligatoire de compléter tous les champs), et vous offrira également la possibilité de rejoindre l'équipe organisant ce déplacement.
 
 **9.** 👤
 Une page profile est disponible et permet de changer les informations utilisateurs tels que le nom, l'email, le mot de passe, la formation ou le sous groupe.
@@ -131,7 +131,7 @@ Vous aurez donc besoin d'installer <a href="https://docs.docker.com/engine/insta
 
 ROuvrez un terminal, rendez-vous dans le bon dossier et lancez docker en tant que root (ou équivalent selon l'OS que vous utilisez):
 ```
-git clone https://github.com/corslyn/SAE23/
+git clone <LE LIEN FOURNI EN ANNEXE>
 cd SAE23  
 docker-compose up
 ```
@@ -288,11 +288,3 @@ Ce qui est intéressant, c'est qu'on peut effectuer de la validation sur ces req
 Contient les controlleurs, qui sont des classes PHP, qui contiennent des méthodes. Les méthodes contiennent la logique PHP. En général, on a une route qui map une URL a une méthode d'un Controlleur. Le controlleur fait des choses avec les Modèles (ajoute, supprime, édite des choses dans la table) et retourne une Vue à laquelle il passe des informations.
 
 
-### 🤝 Remerciements
-
-Merci aux quatres contributeurs du projet
-
-- <a href="https://github.com/rmarc29">MARC Romain</a>
-- <a href="https://github.com/corslyn">MANZINALI Enzo</a>
-- <a href="https://github.com/alexis-cgl">CONIGLIO Alexis</a>
-- <a href="https://github.com/NullBrunk">IDIRI Anas</a>
