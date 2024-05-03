@@ -87,9 +87,10 @@ L'idée de base est la suivante:
 - L'utilisateur s'inscrit avec son e-mail son nom et son prénom, sa formation et son sous-groupe. Son id_véhicule vaut NULL.
 - Un seeder remplit automatiquement la table Emploi du temps, si on veut récuperer l'EDT d'un utilisateur on compare Utilisateur.sous_groupe et Emploidutemps.sousgroupe.
 - L'utilisateur peut annoncer qu'il possède un véhicule qu'il rend disponible pour le covoiturage en utilisant le formulaire page Véhicule. 
-- Si l'utilisateur possède un véhicule il pourra créer un équipage avec lequel il organisera par la suite des déplacements
+- Si l'utilisateur possède un véhicule il pourra créer un équipage avec lequel il organisera par la suite des déplacements.
 - L'utilisateur ajoute des Lieux. Un lieu de domiciliation et un lieu de travail (grace auxquels il aura ses recommendations). Si il possède un véhicule il pourra également ajouter un Lieu d'arrivé ou de départ pour les déplacements qu'il organisera.
-- 
+- Si l'utilisateur possède un équipage il peut organiser des déplacements. Ceux-ci auront un lieu de départ et un lieu d'arrivé que l'utilisateur pourra choisir parmi tous les lieux qu'IL a ajouté.
+- Enfin, un utilisateur rejoint un équipage. Puisqu'il le rejoint on considère qu'il participe à tous les déplaceme,nts de celui-ci.
 
 ## 📝 Guide de l'utilisateur
 
