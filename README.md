@@ -77,6 +77,20 @@ Celui-ci vient avec d'autres fonctionnalités, tels que les Middlewares, la vali
 La partie backend et des explications plus avancée de sa réalisation seront abordées dans la partie <a href="#🛠️-Guide-développeur">guide développeur</a>. 
 
 
+Voici le MCD de la base de donnée:
+![WHITETEME drawio](https://github.com/corslyn/SAE23/assets/125673909/b387729c-3c0d-440c-beb8-22cbf61ea67e)
+
+Et voici le MPD: 
+![ONDARK drawio](https://github.com/corslyn/SAE23/assets/125673909/18ce3f05-1164-4ace-a5ce-2b84d2995736)
+
+L'idée de base est la suivante:
+- L'utilisateur s'inscrit avec son e-mail son nom et son prénom, sa formation et son sous-groupe. Son id_véhicule vaut NULL.
+- Un seeder remplit automatiquement la table Emploi du temps, si on veut récuperer l'EDT d'un utilisateur on compare Utilisateur.sous_groupe et Emploidutemps.sousgroupe.
+- L'utilisateur peut annoncer qu'il possède un véhicule qu'il rend disponible pour le covoiturage en utilisant le formulaire page Véhicule. 
+- Si l'utilisateur possède un véhicule il pourra créer un équipage avec lequel il organisera par la suite des déplacements
+- L'utilisateur ajoute des Lieux. Un lieu de domiciliation et un lieu de travail (grace auxquels il aura ses recommendations). Si il possède un véhicule il pourra également ajouter un Lieu d'arrivé ou de départ pour les déplacements qu'il organisera.
+- 
+
 ## 📝 Guide de l'utilisateur
 
 ### Utilisation simple en 10 étapes
@@ -186,10 +200,6 @@ Si vous voulez visualiser ou modifier la base de donnée de manière simple et e
 - Nom d'utilisateur: root
 - Mot de passe: root
 - Nom de la base de donnée : sae23
-
-Voici le MCD de la base de donnée:
-![golum drawio](https://github.com/corslyn/SAE23/assets/125673909/e6ad5245-43fd-45af-aff4-58561f5c7ae8)
-
 
 ### 🌐 Compréhension générale de Laravel
 
